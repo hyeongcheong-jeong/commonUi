@@ -260,14 +260,14 @@
         <!-- popup -->
         <div class="section" data-class="popup">
             <h1 class="headline">Popup style , loop focus</h1>
-            <p>팝업 기본 구조</p>
             <!--팝업 기본 구조-->
+            <p>팝업 기본 구조</p>
             <pre>
 <!-- modal-popup 기본 구조 -->
 <div class="modal-popup" id="popup">
     <div class="modal-wrap">
         <div class="modal-head">
-            <h1 class="h1_fw700">title</h1>
+            <h1 class="h1_fw700">팝업 제목1</h1>
         </div>
         <div class="modal-body">
             <div class="modal-in">
@@ -287,38 +287,56 @@
             </div>
         </div>
         <div class="modal-close">
-            <button type="button" onclick="popup.close('popup' , 'popupBtn');"></button>
+            <button type="button" onclick="popup.close('popupId' , 'focusId');">팝업 제목1 팝업 닫기</button>
         </div>
     </div>
 </div>
 <!-- modal-popup 기본 구조 -->
             </pre>
+            <p>알럿 기본 구조</p>
+            <pre>
+<!-- modal-alert -->
+<div class="modal-popup modal-alert" id="alert-id">
+    <div class="modal-wrap">
+        <div class="modal-body">
+            <div class="modal-in">
+                <p>해당내용을 삭제 하시겠습니까?</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-btn">
+                <button type="button" class="btn48_outline"><span>삭제</span></button>
+                <button type="button" onclick="popup.close('alert-id' , 'focusId')" class="btn48_outline"><span>취소</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+            </pre>
             <!--e.팝업 기본 구조-->
             <p>팝업 오픈 btn 기본 구조</p>
             <pre>
-<!--javascript로 열기 실행시-->
-<a id="btnId"  href="javascript:popup.open('popupId' , 'btnId')" class="popup-btn">title 팝업 열기</a>
+<!--팝업 열기 기본타입-->
+<button type="button" id="popupBtn"  onclick="popup.open('popup' , this.id)" class="popup-btn">title 팝업 열기(버튼 id 있음)</button>
 
-<!--javascript로 닫기 실행시 focusBtnId는 해당 팝업을 열었을때 btnId로 설정해 주어야 한다-->
-<a href="javascript:popup.close('popupId' , 'focusBtnId');"><img src="./img/icon/ico_close.png" alt="title 팝업 닫기"></a>
+<!--팝업 열기 a tag로 실행 시-->
+<a id="btnId"  href="#popupId" onclick="popup.open('popupId' , this.id)" class="popup-btn">title 팝업 열기</a>
 
-<!--onclick으로 열기 실행시-->
-<button id="btnId" type="button" class="popup-btn" onclick="popup.open('popupId' , 'btnId')">title 팝업 열기</button> 
-
-<!--onclick으로 열기 실행시-->
-<button type="button" onclick="popup.open('popupId' , 'focusBtnId')">title 팝업 열기</button> 
+<!--팝업 닫기 -->
+<button type="button" onclick="popup.close('popupId' , 'focusBtnId')">title 팝업 닫기</button> 
 
             </pre>
             <!--e.팝업 기본 구조-->
             <div class="con-in">
                 <p><button type="button" id="popupBtn"  onclick="popup.open('popup' , this.id)" class="popup-btn">팝업 열기(버튼 id 있음)</button></p>
-                <p><button type="button" id="popupBtn1"  onclick="popup.open('popup1')" class="popup-btn">팝업 열기(버튼 id 있음 , 버튼id값 설정하지 않음)</button></p>
+                <p><button type="button" id="popupBtn1"  onclick="popup.open('popup1' , 'popupBtn1')" class="popup-btn">팝업 열기(버튼 id 있음 , 버튼id값 설정하지 않음)</button></p>
                 <p><button type="button" onclick="popup.open('popup2' , this.id)" class="popup-btn">팝업 열기(버튼 id없음)</button></p>
-                <!-- modal-popup 기본 구조 -->
+                <p><a href="#popup" id="popupBtn2"  onclick="popup.open('moda-alert' , 'popupBtn2'); return false;" class="popup-btn">알럿 팝업 열기(a tag로 실행시)</a></p>
+                
+                <!-- modal-popup focusId가 있고 값이 true일때 -->
                 <div class="modal-popup" id="popup">
                     <div class="modal-wrap">
                         <div class="modal-head">
-                            <h1 class="h1_fw700">title</h1>
+                            <h1 class="h1_fw700">팝업 제목1</h1>
                         </div>
                         <div class="modal-body">
                             <div class="modal-in">
@@ -333,16 +351,16 @@
                         </div>
                         <div class="modal-footer">
                             <div class="modal-btn">
-                                <a href="javascript:;" class="btn64_darkbg"><span>확인</span></a>
+                                <a href="javascript:void(0)" onclick="popup.open('popup1')" class="btn64_darkbg"><span>확인</span></a>
                                 <a href="javascript:;" class="btn64_outline"><span>취소</span></a>
                             </div>
                         </div>
                         <div class="modal-close">
-                            <a href="javascript:popup.close('popup' , 'popupBtn');" class="btn-close"></a>
+                            <button type="button" onclick="popup.close('popup' , 'popupBtn');" class="btn-close"></button>
                         </div>
                     </div>
                 </div>
-                <!-- modal-popup 기본 구조 -->
+                <!-- modal-popup focusId가 있고 값이 false일때 -->
                 <div class="modal-popup" id="popup1">
                     <div class="modal-wrap">
                         <div class="modal-head">
@@ -361,15 +379,15 @@
                         </div>
                         <div class="modal-footer">
                             <div class="modal-btn">
-                                <a href="javascript:;" class="btn64_outline"><span>취소</span></a>
+                                <button type="button" onclick="popup.open('moda-alert')" class="btn64_outline"><span>취소</span></a>
                             </div>
                         </div>
                         <div class="modal-close">
-                            <a href="javascript:popup.close('popup1' , '');" class="btn-close"></a>
+                            <button type="button" onclick="popup.close('popup1' , 'popupBtn');" class="btn-close"></button>
                         </div>
                     </div>
                 </div>
-                <!-- modal-popup 기본 구조 -->
+                <!-- modal-popup focusId가 없을때 -->
                 <div class="modal-popup" id="popup2">
                     <div class="modal-wrap">
                         <div class="modal-head">
@@ -392,7 +410,24 @@
                             </div>
                         </div>
                         <div class="modal-close">
-                            <a href="javascript:popup.close('popup2');" class="btn-close"></a>
+                            <button type="button" onclick="popup.close('popup2');" class="btn-close"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal-alert -->
+                <div class="modal-popup modal-alert" id="moda-alert">
+                    <div class="modal-wrap">
+                        <div class="modal-body">
+                            <div class="modal-in">
+                                <p>해당내용을 삭제 하시겠습니까?</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="modal-btn">
+                                <button type="button" class="btn48_outline"><span>삭제</span></button>
+                                <button type="button" onclick="popup.close('moda-alert' , 'popupBtn2')" class="btn48_outline"><span>취소</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -637,4 +672,17 @@
         </div>
         <!-- e.vaildation -->
 	</body>
+    <script>
+        $(document).ready(function(){
+            $('#prePopup').css({'height':'270px' , 'overflow-y':'auto'})
+            let hgt = $('#prePopup').outerHeight();
+            let sco = $('#prePopup').prop('scrollHeight');
+            if(hgt < sco){
+                //alert('스크롤 있음');
+            } else {
+                //alert('스크롤 없음')
+            }
+            console.log(hgt , sco)
+        })
+    </script>
 </html>

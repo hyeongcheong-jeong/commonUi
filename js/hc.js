@@ -85,51 +85,46 @@ let popup = {
 		target = '#' + popupId;
 		focusEl = $(target).find(focusableElements) // 팝업내 포커스 요소
 		if(btnId === undefined || btnId === ''){//open 버튼요소에 btnId를 입력하지 않았거나 버튼 id가 없을때
-			popup.findBtn(popupId);
-			btnId = setBtnId;
-			console.log(btnId);
+			popup.findBtn(popupId);//btnid가 없는경우 해당 버튼을 찾아 data-attr추가
+		} else {
+			$(target).attr('data-focus-btn', btnId);//닫기시 포커스 id와 비교하기 위해 data-attr추가
 		}
-		$(target).addClass('active').attr('data-focus-btn', btnId);
-		$(focusEl[0]).focus(); //팝업내 첫번째 포커스 요소에 포커스
 		$('html').addClass('modal-open');
-		
-		hashChange.modal(popupId);//history back 클릭시에 팝업 닫기 실행
-		popup.bgClose(popupId);//팝업 배경 클릭시에 팝업 close 실행
+		$(target).addClass('active');
+
+		//접근성 관련
+		$(focusEl[0]).focus(); //팝업내 첫번째 포커스 요소에 포커스
 		popup.focusLoop();//팝업내 loop function 실행
+
+		//callback
+		if(!$(target).hasClass('modal-alert')){//알럿팝업인경우 예외처리
+			popup.bgClose(popupId);//팝업 배경 클릭시에 팝업 close 실행
+		}
+		hashChange.modal(popupId);//history back 클릭시에 팝업 닫기 실행
+		popup.multyCheck();//멀티 팝업일때 배경 중첩 제어
 		popup.setCloseTxt(popupId); //팝업 닫기 버튼 텍스트 생성시 추가
-		//popup.callback.fnName();//콜백함수 실행 예제
 	},
 	close : (popupId , focusId) => {//팝업 close
-		$target = $('#' + popupId);
-		$focusBtn = $('#' + focusId);
-		compareFocus = $target.attr('data-focus-btn');
+		$target = $('#' + popupId); //닫기 팝업 id
+		$focusBtn = $('#' + focusId); //팝업 닫기시 focusId
+		compareFocus = $target.attr('data-focus-btn'); //focusId가 정상적으로 들어갔는지 비교
 		$target.removeClass('active').removeAttr('data-focus-btn');
-		$('html').removeClass('modal-open');
-
-		if($focusBtn.length !== 0){ //focusId 값이 있으며 해당 id값을 가진 포커스 요소가 있을때
-			$focusBtn.focus();
-		} else {
-			popup.focusBtn(focusId);
-		}
 		
-		popup.callback.hashDel();//hash change 사용시 해시 삭제 function;
-		//popup.callback.fnName();//콜백함수 실행 예제
+		if($focusBtn.length !== 0 && compareFocus !== undefined){ //focusId 값이 있으며 해당 id값을 가진 포커스 요소가 있을때
+			$focusBtn === compareFocus
+			? $focusBtn.focus()
+			: $('#' + compareFocus).focus();
+		} else {
+			$('button[data-focus-prop]').focus().removeAttr('data-focus-prop');
+		}
+		popup.multyCheck();//멀티 팝업일때 배경 중첩 제어
 	},
-	findBtn : (idx) =>{//open 버튼요소에 id를 입력하지 않았을때 id값 셋팅
+	findBtn : (idx) =>{//open 버튼요소에 id를 입력하지 않거나 id가 없을때
 		$(popup.btntarget).each(function(){
-			setBtnId = '';
 			if($(this).attr('onclick').indexOf(idx) !== -1){
-				$(this).attr('id') === undefined
-				? $(this).attr('data-focus-prop' , true) 
-				: setBtnId = $(this).attr('id');
+				$(this).attr('data-focus-prop' , true);
 			}
-			console.log(setBtnId)
 		});
-	},
-	focusBtn : (focusIdx) =>{//close 시 focus id가 없을경우 실행
-		if(!focusIdx){//focusid가 없을경우
-			compareFocus !== '' ? $('#' + compareFocus).focus() : $('button[data-focus-prop]').focus().removeAttr('data-focus-prop');
-		} 
 	},
 	focusLoop : () =>{//팝업 오픈시 포커스 loop
 		$(document).on('keydown' , target , function(e){
@@ -169,8 +164,18 @@ let popup = {
 		closeTit = rootEle.find('h1').text() + ' 팝업 닫기';
 		$target.text(closeTit);
 	},
-	callback : {
-		hashDel : function(){//콜백함수 작성
+	multyCheck : () => {//2개이상의 팝업이 열릴경우 dim이 겹치지 않게 제어
+		len = $('.modal-popup.active').length - 1;
+		len === -1 ? $('html').removeClass('modal-open') : false;
+		if(len > 0){
+			$('.modal-popup.active').each(function(index){
+				console.log(index , len)
+				index !== len
+				? $(this).attr('data-bg' , false)
+				: $(this).attr('data-bg' , true);
+			});
+		} else {
+			$('.modal-popup.active').removeAttr('data-bg');
 		}
 	}
 }
@@ -224,7 +229,7 @@ let accord = {
 	}
 }
 
-//dropbox
+//dropbox123123123123123
 let dropbox = {
 
 }
