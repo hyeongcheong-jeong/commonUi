@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>공통 정의</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width , initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="keywords" content="Video conference call, video conferencing, webrtc video call, browser-based video call, record video call.">
+		<link type="text/css" rel="stylesheet" href="./css/hc.css">
+		<!-- j-query 컴포넌트 임포트 -->
+		<script src="./js/jquery-1.12.4.min.js" ></script>
+		<script src="./js/vue.js"></script>
+	</head>
+	<body>
+		<div class="section">
+            <h1 class="headline">font</h1>
+            <div class="items">
+                <p class="h1_fw800 fc_blk">h1</p>
+                <p class="h1_fw700 fc_blue">h1</p>
+                <p class="h1_fw600 error">h1</p>
+                <p class="h1_fw500 fc_red">h1</p>
+                <p class="h1_fw400 fc_link">h1</p>
+            </div>
+            <div class="items">
+                <p class="h2_fw800">h2</p>
+                <p class="h2_fw700">h2</p>
+                <p class="h2_fw600">h2</p>
+                <p class="h2_fw500">h2</p>
+                <p class="h2_fw400">h2</p>
+            </div>
+            <div class="items">
+                <p class="h3_fw800">h3</p>
+                <p class="h3_fw700">h3</p>
+                <p class="h3_fw600">h3</p>
+                <p class="h3_fw500">h3</p>
+                <p class="h3_fw400">h3</p>
+            </div>
+            <div class="items">
+                <p class="h4_fw800">h4</p>
+                <p class="h4_fw700">h4</p>
+                <p class="h4_fw600">h4</p>
+                <p class="h4_fw500">h4</p>
+                <p class="h4_fw400">h4</p>
+            </div>
+            <div class="items">
+                <p class="h5_fw800">h5</p>
+                <p class="h5_fw700">h5</p>
+                <p class="h5_fw600">h5</p>
+                <p class="h5_fw500">h5</p>
+                <p class="h5_fw400">h5</p>
+            </div>
+            <div class="items">
+                <p class="p1_fw800">p1</p>
+                <p class="p1_fw700">p1</p>
+                <p class="p1_fw600">p1</p>
+                <p class="p1_fw500">p1</p>
+                <p class="p1_fw400">p1</p>
+            </div>
+            <div class="items">
+                <p class="p2_fw800">p2</p>
+                <p class="p2_fw700">p2</p>
+                <p class="p2_fw600">p2</p>
+                <p class="p2_fw500">p2</p>
+                <p class="p2_fw400">p2</p>
+            </div>
+            <div class="items">
+                <p class="p3_fw800">p3</p>
+                <p class="p3_fw700">p3</p>
+                <p class="p3_fw600">p3</p>
+                <p class="p3_fw500">p3</p>
+                <p class="p3_fw400">p3</p>
+            </div>
+        </div>
+		
+        <div class="section" data-class="align">
+            <h1 class="headline">text-align</h1>
+            <p class="h1_lt">left align content text content text</p>
+            <p class="h1_rt">right align content text content text</p>
+            <p class="h1_ctr">center align content text content text</p>   
+        </div>
+		
+        <div class="section" data-class="button">
+            <h1 class="headline">button-style</h1>
+            <div class="box_btn">
+                <a href="#url" class="btn_arrow_small"><span>arrow 16</span></a>
+                <a href="#url" class="btn_arrow_mide"><span>arrow 24</span></a>
+                <a href="#url" class="btn_arrow"><span>arrow 32</span></a>
+            </div>
+            <div class="box_btn">
+                <a href="#url" class="btn_download_small"><span>download 16</span></a>
+                <a href="#url" class="btn_download_mide"><span>download 24</span></a>
+                <a href="#url" class="btn_download"><span>download 32</span></a>
+            </div>
+            <div class="box_btn">
+                <a href="#url" class="btn_more_small"><span>more 16</span></a>
+                <a href="#url" class="btn_more_mide"><span>more 24</span></a>
+                <a href="#url" class="btn_more"><span>more 32</span></a>
+            </div>
+            <div class="box_btn">
+                <a href="#url" class="btn32_darkbg"><span>darkbg 32</span></a>
+                <a href="#url" class="btn48_darkbg"><span>darkbg 48</span></a>
+                <a href="#url" class="btn64_darkbg"><span>darkbg 64</span></a>
+            </div>
+            <div class="box_btn">
+                <a href="#url" class="btn32_outline"><span>outline 32</span></a>
+                <a href="#url" class="btn48_outline"><span>outline 48</span></a>
+                <a href="#url" class="btn64_outline"><span>outline 64</span></a>
+            </div>
+        </div>
+
+        <div class="section" data-class="tab">
+            <h1 class="headline">tab-style</h1>
+            <!--메인 탭-->
+            <div class="tab_default" role="tablist">
+                <button type="button" class="current" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" title="선택됨" tabindex="0">접근성 탭1</button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">접근성 탭2</button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1"><span>접근성 탭3</span></button>
+            </div>
+            <!--메인 텝 컨탠츠-->
+            <div class="tab_content" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+                <p>접근성 탭1번 내용</p>
+                <!--서브 탭-->
+                <div class="subTab" role="tablist">
+                    <a class="current" role="tab" href="javascript:;" aria-selected="true" aria-controls="panel-1-1" id="tab-1-1" title="선택됨" tabindex="0">접근성 서브탭1</a>
+                    <a role="tab" href="javascript:;" aria-selected="false" aria-controls="panel-1-2" id="tab-1-2" tabindex="-1">접근성 서브탭2</a>
+                    <a role="tab" href="javascript:;" aria-selected="false" aria-controls="panel-1-3" id="tab-1-3" tabindex="-1">접근성 서브탭3</a>
+                </div>
+                <!--서브탭 컨텐츠-->
+                <div class="tab_subContent" id="panel-1-1" aria-labelledby="tab-1-1" role="tabpanel">
+                    <p>접근성 서브탭1번 내용</p>
+                </div>
+                <div class="tab_subContent" id="panel-1-2" aria-labelledby="tab-1-2" role="tabpanel" style="display:none;">
+                    <p>접근성 서브탭2번 내용</p>
+                </div>
+                <div class="tab_subContent" id="panel-1-3" aria-labelledby="tab-1-3" role="tabpanel" style="display:none;">
+                    <p>접근성 서브탭3번 내용</p>
+                </div>
+            </div>
+
+            <div class="tab_content" id="panel-2" role="tabpanel" aria-labelledby="tab-2" style="display:none;">
+                <p>접근성 탭2번 내용</p>
+            </div>
+            <div class="tab_content" id="panel-3" role="tabpanel" aria-labelledby="tab-3" style="display:none;">
+                <p>접근성 탭3번 내용</p>
+            </div>
+            
+        </div>
+	</body>
+</html>
