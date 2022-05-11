@@ -1,0 +1,83 @@
+{
+  "name": "HyundaiCard",
+  "version": "1.0.0",
+  "description": "> HyundaiCard",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "options": {
+    "paths": {
+      "root": "./",
+      "src": {
+        "base": "./src",
+        "css": "./src/css"
+      }
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.9",
+    "del": "^6.0.0",
+    "fancy-log": "^2.0.0",
+    "git-rev-sync": "^3.0.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-header": "^2.0.9",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-html-tag-include": "^1.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-json-minify": "^1.2.2",
+    "gulp-jsonlint": "^1.3.2",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-newer": "^1.4.0",
+    "gulp-noop": "^1.0.1",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-print": "^5.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-size": "^4.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-spritesmash": "^1.1.1",
+    "gulp-strip-debug": "^4.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "gulp-w3c-css": "^2.0.0",
+    "gulp-w3c-html-validator": "^5.1.2",
+    "gulp-w3cjs": "^1.3.2",
+    "gulp-watch": "^5.0.1",
+    "gulp.spritesmith": "^6.12.1",
+    "imagemin": "^8.0.1",
+    "list-stream": "^2.1.0",
+    "log-symbols": "^5.1.0",
+    "map-stream": "0.0.7",
+    "merge-stream": "^2.0.0",
+    "moment": "^2.29.1",
+    "node-sass": "^7.0.1",
+    "pa11y": "^6.1.1",
+    "pump": "^3.0.0",
+    "through2": "^4.0.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-fs": "^3.0.3",
+    "vinyl-ftp": "^0.6.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "keywords": [],
+  "author": "uidev@bodyfriend.co.kr",
+  "license": "ISC",
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "jshint": "^2.13.4"
+  }
+}
