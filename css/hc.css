@@ -148,12 +148,12 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 /*accordion*/
 .accord_wrap{position:relative;width:100%;}
 .accord_head{width:100%;position:relative;border-bottom:1px solid #000;}
-.accord_btn{position:relative;display:block;width:100%;line-height:32px;padding:15px 0}
+.accord_btn{position:relative;display:block;width:100%;line-height:32px;padding:15px 0;text-align:left;}
 .accord_btn:after{content:'';width:32px;height:32px;background:url('../img/icon/ico_arrow.png') no-repeat right center / 32px;display:block;right:0;top:50%;transform:translateY(-50%) rotate(90deg);position:absolute;transition:transform .2s}
 .accord_btn{position:relative;display:block;width:100%;line-height:32px;padding:15px 0}
 .accord_btn:after{content:'';width:32px;height:32px;background:url('../img/icon/ico_arrow.png') no-repeat right center / 32px;display:block;right:0;top:50%;transform:translateY(-50%) rotate(90deg);position:absolute;transition:transform .2s}
-.active .accord_btn:after{transform:translateY(-50%) rotate(270deg);transition:transform .2s}
-.accord_con , .accord_con_child{padding:15px;background:#eee;display:none;}
+.active > * >.accord_btn:after{transform:translateY(-50%) rotate(270deg);transition:transform .2s}
+.accord_con , .accord_list_con{padding:15px;background:#eee;display:none;}
 
 
 /* input text */
@@ -182,9 +182,9 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 .chk_wrap .chk_list input[type="checkbox"] + label:before{background-size:24px;}
 .chk_wrap .chk_items ~ .chk_items{border-top:1px solid #aaa;margin-top:16px;padding-top:16px;}
 .chk_wrap .chk_all {margin-bottom:24px;}
-.chk_wrap .accord_item{border:1px solid #ddd;border-radius:8px 8px 0 0}
-.chk_wrap .accord_item ~ .accord_item{border:1px solid #ddd;border-top:none;border-radius:0;}
-.chk_wrap .accord_item:last-child{border-radius:0 0 8px 8px;}
+.chk_wrap .accord_items{border:1px solid #ddd;border-radius:8px 8px 0 0}
+.chk_wrap .accord_items ~ .accord_items{border:1px solid #ddd;border-top:none;border-radius:0;}
+.chk_wrap .accord_items:last-child{border-radius:0 0 8px 8px;}
 .chk_wrap .chk_con{background:#eee;padding:20px}
 .chk_wrap .chk_list{margin-top:12px}
 

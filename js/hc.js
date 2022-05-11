@@ -12,6 +12,7 @@ let tabChange = {
 	},
 	event : function(){
 		$(document).on('click' , _this.tab , function(e){
+			e.preventDefault(); //링크 및 앵커 이동 방지
 			target = $(e.target); // 이벤트 타겟
 			if(target.attr('data-rule') !=='tab'){
 				target = target.closest('[data-rule="tab"]'); // 탭구조가 다를시에 타겟 재조정
@@ -194,38 +195,62 @@ let hashChange = {//hash change event
 
 //accordion
 let accord = {
-	accordBtn : '.accord_btn',
 	init : function(){
 		_this = this;
-		_this.event(_this);
-	},
+		_this.event();
+		_this.setShow();//초기 펼침 형태 셋팅시 사용
+	}, 
 	event : () => {
-		
-	},
-	//callback
-	setTitle : () => { // 아코디언 초기 타이틀 값 셋팅
-		$('.accord_wrap').find(_this.accordBtn).each(function(){ 
-			title = $(this).text();
-			$(this).attr('title' , title + ' 상세열기');
-		});
-	},
-	reset : () => { //기존에 열려있는 아코디언 닫기
-		targetDiv.siblings().removeClass('active').find('.accord_con').slideUp(100);
-		targetDiv.siblings().find(accord.accordBtn).attr('title' , title.replace('닫기' ,'열기'))
-	},
-	setShow : () => {//초기 펼침 형태 셋팅
-		$('.accord_item').each(function(){
-			type = $(this).attr('data-show');
-			title = $(this).find('a.accord_btn').attr('title');
-			txt = $(this).find('button.accord_btn').text();
-			if(type === 'true'){
-				$(this).addClass('active');
-				$(this).find('.accord_con').show();
-				title !== undefined
-				? $(this).find('.accord_btn').attr('title' , title.replace('열기' ,'닫기'))
-				: $(this).find('.accord_btn span').text(txt.replace('열기' , '닫기'))
+		parentEle = '.accord_items , .accord_list_items';//parent element
+		exceptEle = '.accord_list_items , .chk_wrap';//예외처리할 클레스
+		$(document).on('click' , '.accord_btn' , function(){
+			rootEle = $(this).closest('.accord_wrap');
+			parentNode = $(this).closest(parentEle);
+			targetId = $(this).attr('aria-controls');
+			if(parentNode.hasClass('active')){
+				accord.slideUp();
+				$(this).attr('aria-expanded' , 'false');
+			} else {
+				accord.slideDown();
+				$(this).attr('aria-expanded' , 'true');
+				$(this).closest(exceptEle).length === 0 
+				? accord.reset()
+				: false
 			}
 		});
+	},
+	slideUp : () => { //슬라이드 업
+		parentNode.removeClass('active');
+		$('#' + targetId).slideUp(100);
+	},
+	slideDown : () => { //슬라이드 다운
+		parentNode.addClass('active');
+		$('#' + targetId).slideDown(100);
+	},
+	//callback
+	reset : () => { //기존에 열려있는 아코디언 닫기
+		parentNode.siblings().removeClass('active').children('.accord_con').slideUp(100);
+		parentNode.siblings().children('.accord_head').find('.accord_btn').attr('aria-expanded' , 'false');
+	},
+	setShow : () => {//초기 펼침 형태 셋팅
+		$(parentEle).each(function(){
+			type = $(this).attr('data-show');
+			if(type === 'true'){
+				$(this).addClass('active').find('.accord_btn').attr('aria-expanded' , 'true');
+				$(this).children('.accord_con').show();
+			}
+		});
+	},
+	ajaxSample : () => {
+		setTimeout(function(){
+			html = '<dl class="accord_items">' +
+						'<dt class="accord_head">' +
+							'<button type="button" id="accordion1" class="accord_btn" aria-expanded="false" aria-contros="accord_con1">아코디언 제목1</button>' +
+						'</dt>' +
+						'<dd class="accord_con" id="accord_con1" aria-labelledby="accordion1">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>' +
+					'</dl>'
+			$('.accord_wrap').append(html)
+		} , 2000);
 	}
 }
 
@@ -244,7 +269,7 @@ let checkbox = {
 		$(document).on('change' , '.chk_wrap input[type="checkbox"]' , function(){
 			_this = $(this);
 			chkDiv = _this.closest('.chk_wrap');//체크 root ele
-			chkItem = _this.closest('.accord_item');//아코디언 형태의 1단계 ele
+			chkItem = _this.closest('.accord_items');//아코디언 형태의 1단계 ele
 			chkCon = _this.closest('.chk_items'); //아코디언 형태의 2단계 ele
 			chkList = _this.closest('.chk_list'); //최하위 단계 ele
 			chkCls = _this.parent().attr('class'); //변경된 checkbox 부모 class
@@ -321,7 +346,7 @@ let checkbox = {
 	},
 	slideUp : (cls) => { //지정 클레스 slideup
 		val = $('.' + cls).find('input[type="checkbox"]').prop('checked');
-		slideEle = _this.closest('.chk_wrap').find('.accord_item');
+		slideEle = _this.closest('.chk_wrap').find('.accord_items');
 		if(val === true){
 			slideEle.removeClass('active').find('.accord_con').slideUp(100);
 		}

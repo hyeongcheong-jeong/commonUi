@@ -438,7 +438,168 @@
         <!-- accordion -->
         <div class="section" data-class="accordion">
             <h1 class="headline">accordion</h1>
-            
+            <pre>
+<!--아코디언 1단 기본 구조-->
+<div class="accord_wrap">
+    <!--초기 펼침 상태로 셋팅해야 하는경우 data-show 값을 추가해 준다.-->
+    <dl class="accord_items" data-show="true">
+        <dt class="accord_head">
+            <button type="button" id="accordion1" class="accord_btn" aria-expanded="false" aria-controls="accord_con1">아코디언 제목1</button>
+        </dt>
+        <dd class="accord_con" id="accord_con1" aria-labelledby="accordion1">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+    </dl>
+    <dl class="accord_items">
+        <dt class="accord_head">
+            <button type="button" id="accordion2" class="accord_btn" aria-expanded="false" aria-controls="accord_con2">아코디언 제목2</button>
+        </dt>
+        <dd class="accord_con" id="accord_con2" aria-labelledby="accordion2">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+    </dl>
+    <dl class="accord_items">
+        <dt class="accord_head">
+            <button type="button" id="accordion3" class="accord_btn" aria-expanded="false" aria-controls="accord_con3">아코디언 제목3</button>
+        </dt>
+        <dd class="accord_con" id="accord_con3" aria-labelledby="accordion3">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+    </dl>
+</div>  
+            </pre>
+            <pre>
+<!--2단 아코디언 형태 구조-->
+<div class="accord_wrap">
+    <h2 class="h5_fw700_lt  mt32">아코디언 2단 구조</h2>
+    <div class="accord_items" data-show="true">
+        <h4 class="accord_head">
+            <button type="button" id="deptConBtn1" class="accord_btn" aria-expanded="false" aria-controls="deptCon1">아코디언 대제목1(초기 펼침 처리)</button>
+        </h4>
+        <div class="accord_con" id="deptCon1" aria-labelledby="deptConBtn1">
+            <p>대제목 1번 내용 내용 내용 내용 내용</p>
+            <div class="accord_list_items" data-show="true">
+                <h5 class="accord_head">
+                    <button type="button" id="deptConBtn1-1" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-1">아코디언 소제목1</button>
+                </h5>
+                <div class="accord_con" id="deptCon1-1" aria-labelledby="deptConBtn1-1">
+                    내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                </div>
+            </div>
+            <div class="accord_list_items" data-show="true">
+                <h5 class="accord_head">
+                    <button type="button" id="deptConBtn1-2" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-2">아코디언 소제목1</button>
+                </h5>
+                <div class="accord_con" id="deptCon1-2" aria-labelledby="deptConBtn1-2">
+                    내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                </div>
+            </div>
+            <div class="accord_list_items">
+                <h5 class="accord_head">
+                    <button type="button" id="deptConBtn1-3" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-3">아코디언 소제목1</button>
+                </h5>
+                <div class="accord_con" id="deptCon1-3" aria-labelledby="deptConBtn1-3">
+                    내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                </div>
+            </div>
+            <div class="accord_list_items">
+                <h5 class="accord_head">
+                    <button type="button" id="deptConBtn1-4" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-4">아코디언 소제목1</button>
+                </h5>
+                <div class="accord_con" id="deptCon1-4" aria-labelledby="deptConBtn1-4">
+                    내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accord_items">
+        <dt class="accord_head">
+            <button type="button" id="deptConBtn2" class="accord_btn" aria-expanded="false" aria-controls="deptCon2">아코디언 제목2</button>
+        </dt>
+        <dd class="accord_con" id="deptCon2" aria-labelledby="deptConBtn2">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+    </div>
+    <div class="accord_items">
+        <dt class="accord_head">
+            <button type="button" id="deptConBtn3" class="accord_btn" aria-expanded="false" aria-controls="deptCon3">아코디언 제목3</button>
+        </dt>
+        <dd class="accord_con" id="deptCon3" aria-labelledby="deptConBtn3">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+    </div>
+</div>
+            </pre>
+            <p>accord_head의 버튼 id와 accord_con의 aria-labelledby 값은 동일하게 맞추어 준다.(접근성 관련)</p>
+            <p>accord_head의 버튼 aria-contros와 accord_con의 id 값은 동일하게 맞추어 준다. 값이 다르면 동작하지 않는다.</p>
+            <p>1단 구조일때는 dl태그로 작성하도록한다.</p>
+            <p>초기 펼침상태로 셋팅할시에는 data-show 값을 추가해 준다.</p>
+            <div class="accord_wrap">
+                <h2 class="h5_fw700_lt  mt32">아코디언 1단 구조</h2>
+                <dl class="accord_items" data-show="true">
+                    <dt class="accord_head">
+                        <button type="button" id="accordion1" class="accord_btn" aria-expanded="false" aria-controls="accord_con1">아코디언 제목1(초기 펼침 처리)</button>
+                    </dt>
+                    <dd class="accord_con" id="accord_con1" aria-labelledby="accordion1">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+                </dl>
+                <dl class="accord_items">
+                    <dt class="accord_head">
+                        <button type="button" id="accordion2" class="accord_btn" aria-expanded="false" aria-controls="accord_con2">아코디언 제목2</button>
+                    </dt>
+                    <dd class="accord_con" id="accord_con2" aria-labelledby="accordion2">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+                </dl>
+                <dl class="accord_items">
+                    <dt class="accord_head">
+                        <button type="button" id="accordion3" class="accord_btn" aria-expanded="false" aria-controls="accord_con3">아코디언 제목3</button>
+                    </dt>
+                    <dd class="accord_con" id="accord_con3" aria-labelledby="accordion3">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+                </dl>
+            </div>
+            <div class="accord_wrap">
+                <h2 class="h5_fw700_lt  mt32">아코디언 2단 구조</h2>
+                <div class="accord_items" data-show="true">
+                    <h4 class="accord_head">
+                        <button type="button" id="deptConBtn1" class="accord_btn" aria-expanded="false" aria-controls="deptCon1">아코디언 대제목1(초기 펼침 처리)</button>
+                    </h4>
+                    <div class="accord_con" id="deptCon1" aria-labelledby="deptConBtn1">
+                        <p>대제목 1번 내용 내용 내용 내용 내용</p>
+                        <div class="accord_list_items" data-show="true">
+                            <h5 class="accord_head">
+                                <button type="button" id="deptConBtn1-1" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-1">아코디언 소제목1</button>
+                            </h5>
+                            <div class="accord_con" id="deptCon1-1" aria-labelledby="deptConBtn1-1">
+                                내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                            </div>
+                        </div>
+                        <div class="accord_list_items" data-show="true">
+                            <h5 class="accord_head">
+                                <button type="button" id="deptConBtn1-2" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-2">아코디언 소제목1</button>
+                            </h5>
+                            <div class="accord_con" id="deptCon1-2" aria-labelledby="deptConBtn1-2">
+                                내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                            </div>
+                        </div>
+                        <div class="accord_list_items">
+                            <h5 class="accord_head">
+                                <button type="button" id="deptConBtn1-3" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-3">아코디언 소제목1</button>
+                            </h5>
+                            <div class="accord_con" id="deptCon1-3" aria-labelledby="deptConBtn1-3">
+                                내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                            </div>
+                        </div>
+                        <div class="accord_list_items">
+                            <h5 class="accord_head">
+                                <button type="button" id="deptConBtn1-4" class="accord_btn" aria-expanded="false" aria-controls="deptCon1-4">아코디언 소제목1</button>
+                            </h5>
+                            <div class="accord_con" id="deptCon1-4" aria-labelledby="deptConBtn1-4">
+                                내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용 내용내용내용내용내용내용
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accord_items">
+                    <dt class="accord_head">
+                        <button type="button" id="deptConBtn2" class="accord_btn" aria-expanded="false" aria-controls="deptCon2">아코디언 제목2</button>
+                    </dt>
+                    <dd class="accord_con" id="deptCon2" aria-labelledby="deptConBtn2">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+                </div>
+                <div class="accord_items">
+                    <dt class="accord_head">
+                        <button type="button" id="deptConBtn3" class="accord_btn" aria-expanded="false" aria-controls="deptCon3">아코디언 제목3</button>
+                    </dt>
+                    <dd class="accord_con" id="deptCon3" aria-labelledby="deptConBtn3">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
+                </div>
+            </div>
         </div>
         <!--e.accordion-->
 
@@ -459,13 +620,13 @@
                    <label for="chk_all">전체 체크</label>
                 </p>
                 <!--아코디언 형식의 약관 체크 형식일때-->
-                <div class="accord_item" id="vaild" data-show="true">
+                <div class="accord_items" id="vaild" data-show="true">
                     <p class="chk">
                         <input type="checkbox" id="agree01" class="input_chk">
                         <label for="agree01">agreement01(필수)</label>
-                        <button class="accord_btn"><span class="blind">agreement01 상세열기</span></button>  
+                        <button type="button" class="accord_btn" id="agreeBtn1" aria-expanded="false" aria-controls="agreeCon1"><span class="blind">agreement01 상세리스트</span></button>  
                     </p>
-                    <div class="accord_con">
+                    <div class="accord_con" id="agreeCon1" aria-labelledby="agreeBtn1">
                         <div class="chk_items">
                             <p class="chk01">
                                 <input type="checkbox" id="agree01-1" class="input_chk">
@@ -516,13 +677,13 @@
                         </div>
                     </div>    
                 </div>
-                <div class="accord_item" data-show="true">
+                <div class="accord_items" data-show="true">
                     <p class="chk">
                         <input type="checkbox" id="agree02" class="input_chk"> 
                         <label for="agree02">agreement02(선택)</label>
-                        <button class="accord_btn"><span class="blind">agreement02 상세열기</span></button>
+                        <button type="button" class="accord_btn" id="agreeBtn2" aria-expanded="false" aria-controls="agreeCon2"><span class="blind">agreement02 상세리스트</span></button>
                     </p>
-                    <div class="accord_con">
+                    <div class="accord_con" id="agreeCon2" aria-labelledby="agreeBtn2">
                         <div class="chk_items">
                             <p class="chk01">
                                 <input type="checkbox" id="agree02-1" class="input_chk">
