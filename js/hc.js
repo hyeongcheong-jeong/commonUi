@@ -36,7 +36,7 @@ let tabChange = {
 		});
 		
 	},
-	keyEvent : function(){ //접근성 탭 좌우 버튼
+	keyEvent : () =>{ //접근성 탭 좌우 버튼
 		$(document).on('keydown',  '[data-rule="tablist"]' , function(e){
 			if(e.keyCode === 39){
 				console.log('123');
@@ -45,14 +45,14 @@ let tabChange = {
 			}
 		});	
 	},
-	focusIn : function(){ //키보드로 진입시 활성화된 탭이 첫번째가 아닐때 포커스 재조정 
+	focusIn : () => { //키보드로 진입시 활성화된 탭이 첫번째가 아닐때 포커스 재조정 
 		
 	},
 	reset : (tabCls , tabConCls) => {
 	},
-	reload : function(){
+	reload : () => {
 		
-	}
+	},
 }
 /* 접근성(auto-caption) */
 let accessTable = {
@@ -78,7 +78,8 @@ let accessTable = {
 			});
 			$(this).find('caption').html(title + ' - ' + scope + '항목으로 구성된 표입니다.')
 		});
-	}
+	},
+	
 }
 
 /* modal-popup */
@@ -203,13 +204,14 @@ let accord = {
 		_this.setShow();//초기 펼침 형태 셋팅시 사용
 	}, 
 	event : () => {
-		parentEle = '.accord_items , .accord_list_items';//parent element
+		parentElement = '.accord_items , .accord_list_items';//parent element
 		exceptEle = '.accord_list_items , .chk_wrap';//예외처리할 클레스
 		$(document).on('click' , '.accord_btn' , function(){
 			rootEle = $(this).closest('.accord_wrap');
-			parentNode = $(this).closest(parentEle);
+			parentNode = $(this).closest(parentElement);
 			targetId = $(this).attr('aria-controls');
 			if(parentNode.hasClass('active')){
+				console.log('123')
 				accord.slideUp();
 				$(this).attr('aria-expanded' , 'false');
 			} else {
@@ -235,7 +237,7 @@ let accord = {
 		parentNode.siblings().children('.accord_head').find('.accord_btn').attr('aria-expanded' , 'false');
 	},
 	setShow : () => {//초기 펼침 형태 셋팅
-		$(parentEle).each(function(){
+		$(parentElement).each(function(){
 			type = $(this).attr('data-show');
 			if(type === 'true'){
 				$(this).addClass('active').find('.accord_btn').attr('aria-expanded' , 'true');
@@ -256,9 +258,53 @@ let accord = {
 	}
 }
 
-//
-let dropbox = {
-
+// custom select type
+let selectbox = {
+	init : function(){
+		_this = this;
+		_this.event();
+	},
+	event : () => {
+		$(document).on('click' , '.selectbox_header button' , function(){
+			rootElement = $(this).closest('.selectbox_wrap');
+			slideTarget = rootElement.find('.selectbox_body');
+			changeTarget = rootElement.find('.selectbox_header button');
+			if(rootElement.hasClass('active')){
+				$(this).attr('aria-expanded' , false);
+				selectbox.slideUp(slideTarget);
+			} else {
+				$(this).attr('aria-expanded' , true);
+				selectbox.slideDown(slideTarget);
+			}
+		});
+		_this.checkVal();
+	},
+	slideDown : (target) => {
+		$('.selectbox_wrap').each(function(){
+			$(this).removeClass('active');
+		});
+		rootElement.addClass('active');
+		target.slideDown(100);
+	},
+	slideUp : (target) => {
+		rootElement.removeClass('active');
+		target.slideUp(100);
+	},
+	checkVal : () => {
+		$('.selectbox_list li').each(function(){//초기 셀렉트 값 체크
+			if($(this).hasClass('selected')){
+				html = $(this).find('button').html();
+				changeTarget = $(this).closest('.selectbox_wrap').find('.selectbox_header button');
+				return changeTarget.html(html);
+			}
+		});
+		$(document).on('click' , '.selectbox_list button' , function(){
+			html = $(this).html();
+			$(this).closest('li').addClass('selected').siblings().removeClass('selected');
+			selectbox.slideUp(slideTarget);
+			changeTarget.html(html);
+		});
+	},
 }
 
 // check box
@@ -368,7 +414,7 @@ let inputbox = {
 	event : () => {
 		focusEle = 'input[type="text"] , input[type="number"] , input[type="password"] , .input_btn button , select:not([disabled])';
 		vaildEle = 'input[type="text"] , input[type="number"] , input[type="password"] , select:not([disabled])';
-		rootNode = '.box_input'; //focused , completed , keep 요소
+		rootNode = '.box_input'; //focused , keep 요소
 		parentEle = '.box_input_cell , .input_btn'; //focus-in 요소
 		inputbox.load();//input에 값을 가지고 있는경우
 		inputbox.focus();
@@ -468,6 +514,7 @@ let inputbox = {
 	}	
 }
 
+//vaildation
 let vaildChk = {
 	click : (idx) => { //클릭 이벤트로 vaildation 체크시
 		vaildCon = $('#' + idx);
@@ -484,7 +531,9 @@ let vaildChk = {
 let error = {
 	msg : (errTxt , appendClass) => {
 		html = '<p class="error_msg">' + errTxt + '</p>';
-		$(appendClass).append(html);
+		$(appendClass).find('.error_msg').length === 0
+		? $(appendClass).append(html)
+		: false;
 	},
 	del : (removeClass) => {
 		$(removeClass).find('.error_msg').remove();
@@ -512,6 +561,7 @@ let commonUi = {//공통적으로 로드할 function 정의
 	init : function(){
 	}
 }
+
 $(document).ready(function(){
 	tabChange.init();
 	accessTable.init();
@@ -519,6 +569,7 @@ $(document).ready(function(){
 	accord.init();
 	charChange.init();
 	inputbox.event();
+	selectbox.init();
 });
 
 

@@ -157,7 +157,6 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 .active > * >.accord_btn:after{transform:translateY(-50%) rotate(270deg);transition:transform .2s}
 .accord_con , .accord_list_con{padding:15px;background:#eee;display:none;}
 
-
 /* input text */
 .box_input{display:block;padding-bottom:16px}
 .box_input ~ .box_input{margin-top:16px}
@@ -179,7 +178,6 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 .box_input.focused .input_con label , .box_input .completed .input_con label , .box_input.keep .input_con label 
 {font-size:12px;top:-15px;transition:top .3s , font-size .2s;color:#000fff}
 .box_input.focused .label_hide, .box_input .completed .label_hide , .box_input.keep .label_hide{display:none;}
-
 .box_input .select_label{position:absolute;height:100%;padding:0 5px;left:16px;line-height:32px;font-size:12px;top:-15px;color:#000fff;background:#fff;opacity:0;}
 .box_input.focused .select_label , .box_input.keep .select_label{opacity:1;transition:opacity .2;}
 .box_input[class*="row"]{display:flex;width:100%;justify-content:space-between;}
@@ -194,8 +192,7 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 .masking span{display:block;width:24px;height:24px;border:1px solid #000;border-radius:100%;}
 .masking span + span{margin-left:8px}
 .masking span.current{background:#000;}
-.error .masking span{border-color:#ff0000;}
-
+.error:not(.focus-in) .masking span{border-color:#ff0000;}
 
 /*checkbox*/
 .chk_wrap{position:relative;}
@@ -217,6 +214,29 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 .chk_wrap .accord_items:last-child{border-radius:0 0 8px 8px;}
 .chk_wrap .chk_con{background:#eee;padding:20px}
 .chk_wrap .chk_list{margin-top:12px}
+
+/*custom selectbox*/
+.selectbox_wrap{position:relative;width:100%;}
+.selectbox_wrap .img img{width:100%;}
+.selectbox_wrap.active{z-index:10;}
+.selectbox_wrap ~ .selectbox_wrap{margin-top:40px}
+.selectbox_wrap button{display:flex;width:100%;}
+.selectbox_header{position:relative;}
+.selectbox_header .img{width:32px;margin-right:16px;}
+.selectbox_header button{height:112px;border:1px solid #ddd;padding:16px;align-items:center;font-size:20px}
+.selectbox_header button:after{content:'';display:block;width:32px;height:32px;background:url('../img/icon/ico_arrow.png') no-repeat center center / 32px;position:absolute;right:16px;top:calc(50% - 16px);transform:rotate(90deg);transition:transform .3s}
+.selectbox_wrap.active .selectbox_header button:after{transform:rotate(270deg);transition:transform .3s}
+.selectbox_body{position:absolute;display:none;border:1px solid #ddd;width:100%;min-height:100px;max-height:300px;overflow-y:auto;background:#fff;top:124px}
+.selectbox_wrap.active .selectbox_body{display:block;}
+.selectbox_list li{position:relative;padding:16px 8px;}
+.selectbox_list li + li{border-top:1px solid #ccc}
+.selectbox_list li button{align-items:center;}
+.selectbox_list li.selected:after{content:'';position:absolute;width:32px;height:32px;right:16px;top:50%;transform:translateY(-50%);background:url('../img/icon/ico_check.png') no-repeat right center / 32px}
+.selectbox_list .img{width:32px;margin-right:16px}
+.selectbox_list.benefit button span{display:none;}
+
+.selectbox_wrap.small .selectbox_header button{height:64px}
+.selectbox_wrap.small .selectbox_body{top:76px}
 
 /*content*/
 .headline{font-size:40px;line-height:50px;font-weight:600;padding:12px 0;margin-bottom:24px;border-bottom:1px solid #000;width:100%;}

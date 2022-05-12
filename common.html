@@ -906,7 +906,7 @@
         <!-- e.checkbox -->
         
         <!--inputbox(text)-->
-        <div class="section" data-class="input text">
+        <div class="section" data-class="input-text">
             <h1 class="headline">input text</h1>
             <pre>
 <!--inputbox 기본구조-->
@@ -1116,7 +1116,96 @@
             <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w50p" onclick="inputbox.vaildChk(vaildEle , parentEle);//vaildation check 가 필요할때 사용"><span>vaildation check</span></button></div>
         </div>
         <!--e.inputbox(text)-->
-        
+        <!-- selectbox (커스텀 selectbox 형태)-->
+        <div class="section" data-class="selectbox">
+            <h1 class="headline">selectbox (selectbox 형태의 커스텀 ui)</h1>
+            <div class="selectbox_wrap">
+                <div class="selectbox_header">
+                    <button type="button" id="controls-btn" aria-expanded="false" aria-controls="selectbox_body">
+                        <p>카드를 선택해 주세요</p>
+                    </button>
+                </div>
+                <div class="selectbox_body" id="selectbox_body" aria-labelledby="controls-btn">
+                    <ul class="selectbox_list">
+                        <li class="selected">
+                            <button type="button" vaule="mboost">
+                                <p class="img"><img src="./img/plt_mboost.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="xboost">
+                                <p class="img"><img src="./img/plt_xboost.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="zfamily">
+                                <p class="img"><img src="./img/plt_zfamily.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="zero">
+                                <p class="img"><img src="./img/plt_zero.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="purple">
+                                <p class="img"><img src="./img/plt_purple.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="red">
+                                <p class="img"><img src="./img/plt_red.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="green">
+                                <p class="img"><img src="./img/plt_green.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="pink">
+                                <p class="img"><img src="./img/plt_pink.png" alt=""></p>
+                                <p class="txt">카드네이밍 1111-1111-1***-**11</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="selectbox_wrap small">
+                <div class="selectbox_header">
+                    <button type="button" id="controls-btn" aria-expanded="false" aria-controls="selectbox_body">
+                        <p><span>2022년 </span>4월<span>에 받은 혜택</span></p>
+                    </button>
+                </div>
+                <div class="selectbox_body" id="selectbox_body" aria-labelledby="controls-btn">
+                    <ul class="selectbox_list benefit">
+                        <li>
+                            <button type="button" vaule="">
+                                <p><span>2022년 </span>1월<span>에 받은 혜택</span></p>
+                            </button>
+                        </li>
+                        <li class="selected">
+                            <button type="button" vaule="">
+                                <p><span>2022년 </span>2월<span>에 받은 혜택</span></p>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" vaule="">
+                                <p><span>2022년 </span>3월<span>에 받은 혜택</span></p>
+                            </button>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
         <!-- vaildation -->
         <div class="section" data-class="vaildation">
             <h1 class="headline">vaildation check</h1>
