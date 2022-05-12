@@ -6,13 +6,13 @@ let tabChange = {
 	focusEl : $(['[aria-selected]']), //
 	//tablist : $('[data-rule="tablist"]') , // tab list 
 	init : function(){
+		$('[data-rule="tab"]').attr('onclick' , 'return false;')
 		_this = this;
 		_this.event(_this);
 		_this.keyEvent();
 	},
 	event : function(){
 		$(document).on('click' , _this.tab , function(e){
-			e.preventDefault(); //링크 및 앵커 이동 방지
 			target = $(e.target); // 이벤트 타겟
 			if(target.attr('data-rule') !=='tab'){
 				target = target.closest('[data-rule="tab"]'); // 탭구조가 다를시에 타겟 재조정
@@ -47,6 +47,8 @@ let tabChange = {
 	},
 	focusIn : function(){ //키보드로 진입시 활성화된 탭이 첫번째가 아닐때 포커스 재조정 
 		
+	},
+	reset : (tabCls , tabConCls) => {
 	},
 	reload : function(){
 		
@@ -254,7 +256,7 @@ let accord = {
 	}
 }
 
-//dropbox123123123123123
+//
 let dropbox = {
 
 }
@@ -363,55 +365,107 @@ let checkbox = {
 }
 // input box
 let inputbox = {
-	focusEle : 'input[type="text"] , input[type="number"] , input[type="password"]' ,
-	parentEle : '.box_input , .box_input_cell',
 	event : () => {
+		focusEle = 'input[type="text"] , input[type="number"] , input[type="password"] , .input_btn button , select:not([disabled])';
+		vaildEle = 'input[type="text"] , input[type="number"] , input[type="password"] , select:not([disabled])';
+		rootNode = '.box_input'; //focused , completed , keep 요소
+		parentEle = '.box_input_cell , .input_btn'; //focus-in 요소
+		inputbox.load();//input에 값을 가지고 있는경우
 		inputbox.focus();
 		inputbox.clear();
+		inputbox.masking();//마스킹 요소가 필요할때 사용
 	},
 	focus : () => {
-		$(document).on('focusin' , inputbox.focusEle , function(){//focusin
-			changeEle = $(this).closest('.box_input');
-			changeEle.addClass('focused');
+		$(document).on('focusin' , focusEle , function(){//focusin
+			$(this).closest(rootNode).addClass('focused');
+			$(this).closest(parentEle).addClass('focus-in');
+			if($(this).val().length !== 0 && !$(this).attr('readonly')){
+				$(this).closest(parentEle)
+				.find('.btn_del')
+				.addClass('on');
+			}
 		});
 		
-		$(document).on('focusout' , inputbox.focusEle , function(){//focusout
-			changeEle = $(this).closest('.box_input');
-			changeEle.removeClass('focused')
+		$(document).on('focusout' , focusEle , function(){//focusout
+			$(this).closest(rootNode).removeClass('focused');
+			$(this).closest(parentEle).removeClass('focus-in');
 		});
 		inputbox.keyEvent();
 	},
 	keyEvent : () => {
-		$(document).on('keyup' , inputbox.focusEle , function(){//completed
+		$(document).on('keyup , change' , vaildEle , function(){//completed
 			val = $(this).val();
-			if(val.length !== 0){
-				$(this).closest('.box_input').addClass('completed').find('.btn_del').addClass('on');
+			rowType = $(this).closest(rootNode).find('.box_input_cell').length;
+			if(val !== '' && !$(this).attr('readonly')	){
+				$(this).closest(parentEle)
+				.removeClass('error')//vaildation check시에 에러 클레스 제거 필요시 사용
+				.addClass('completed')
+				.find('.btn_del')
+				.addClass('on');
+				error.del($(this).closest(parentEle))
 			} else {
-				$(this).closest('.box_input').removeClass('completed').find('.btn_del').removeClass('on');
+				$(this).closest(parentEle).removeClass('completed').find('.btn_del').removeClass('on');
+			}
+
+			if(rowType > 1){//parentEle 가 2개 이상일때 label 제어
+				$(this).closest(rootNode).find('.completed').length === 0 
+				? $(this).closest(rootNode).removeClass('keep')
+				: $(this).closest(rootNode).addClass('keep');
 			}
 		});	
 	},
-	valChk : () => {
-		
-	},
-	clear : () => {
+	clear : () => {//input value 초기화 함수
 		$(document).on('click' , '.btn_del' , function(){//completed
 			clearVal = '';
-			$(this).removeClass('on').closest(inputbox.parentEle)
-			.removeClass('completed').find(inputbox.focusEle).val(clearVal);
+			$(this).removeClass('on')
+			.closest('.box_input_cell')
+			.removeClass('completed')
+			.find(focusEle)
+			.val(clearVal);
 		});
 	},
-	masking : () => {
-		$('input[type="password"]').each(function(){
-			length = $(this).attr('maxlength');
-			target = '.masking';
-			for(i=0; i < length; i++){
-				console.log(i)
+	load : () => {//default value 값이 있을때 label제어
+		$(vaildEle).each(function(){
+			Value = $(this).val();
+			if(Value !== ''){
+				$(this).closest(parentEle).addClass('completed')	
 			}
 		});
-	}
+	},
+	//callback
+	masking : () => {//디자인에 따른 password 마스킹 처리시
+		$('input[type="password"]').each(function(){//maxlength 만큼 마스킹 요소 생성
+			length = $(this).attr('maxlength');
+			$target = $(this).next('.masking')
+			for(i=0; i < length; i++){
+				$target.append('<span></span>'); 
+			}
+		});
+		$(document).on('focusin , click' , 'input[type="password"]' , function(){//value 값이 있을때 커서를 제일 뒤로 보내기
+			charLen = $(this).val().length;
+			$(this).get(0).setSelectionRange(charLen , charLen);
+		});
+		$(document).on('keypress' , 'input[type="password"]' , function(){
+			len = $(this).val().length
+			$target = $(this).next('.masking').children('span'); //타겟 지정
+			$target.eq(len).addClass('current');
+		});
+		$(document).on('keydown' , 'input[type="password"]' , function(e){// backspace 일때 event
+			len = $(this).val().length
+			e.keyCode === 8 ? $target.eq(len - 1).removeClass('current') : false; 
+		});
 
-	
+	},
+	vaildChk : (target , parentNode) => {//validation check
+		$(target).each(function(){
+			val = $(this).val();
+			condition = ''//error 조건 
+			if(val === condition){
+				$(this).closest(parentNode).addClass('error');
+				error.msg('에러메시지 입니다.' , $(this).closest(parentNode));
+			}
+		})	
+	}	
 }
 
 let vaildChk = {
@@ -426,14 +480,18 @@ let vaildChk = {
 	}
 }
 
-
+//error msg
 let error = {
-	msg : (txt) =>{
-
+	msg : (errTxt , appendClass) => {
+		html = '<p class="error_msg">' + errTxt + '</p>';
+		$(appendClass).append(html);
+	},
+	del : (removeClass) => {
+		$(removeClass).find('.error_msg').remove();
 	}
 }
 
-//< , > 문자열 변경
+//< , > 문자열 변경 가이드에서 pre안에 태그 넣을때 사용
 let charChange = {
 	init : function(){
 		_this = this;
@@ -442,8 +500,8 @@ let charChange = {
 	event : function(){
 		$('pre').each(function(){
 			txt = $(this).html();
-			replaceTxt = txt.replace(/</gi , '&lt;');
-			replaceTxt = replaceTxt.replace(/>/gi , '&gt;');
+			replaceTxt = txt.replace(/</gi , '&lt;'); //정규식 모든 <요소를 &lt;로 변경
+			replaceTxt = replaceTxt.replace(/>/gi , '&gt;'); //정규식 모든 >요소를 &gt;로 변경
 			$(this).html(replaceTxt)
 		});
 		
