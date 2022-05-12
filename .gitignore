@@ -1,0 +1,5 @@
+.vscode
+.ftpconfig
+.ftpignore
+.zip
+node_modules/
