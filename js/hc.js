@@ -559,6 +559,7 @@ let charChange = {
 
 let commonUi = {//공통적으로 로드할 function 정의
 	init : function(){
+	
 	}
 }
 
