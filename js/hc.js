@@ -211,7 +211,6 @@ let accord = {
 			parentNode = $(this).closest(parentElement);
 			targetId = $(this).attr('aria-controls');
 			if(parentNode.hasClass('active')){
-				console.log('123')
 				accord.slideUp();
 				$(this).attr('aria-expanded' , 'false');
 			} else {
@@ -225,11 +224,13 @@ let accord = {
 	},
 	slideUp : () => { //슬라이드 업
 		parentNode.removeClass('active');
-		$('#' + targetId).slideUp(100);
+		parentNode.find('> .accord_con').slideUp(100);
+		//$('#' + targetId).slideUp(100);
 	},
 	slideDown : () => { //슬라이드 다운
 		parentNode.addClass('active');
-		$('#' + targetId).slideDown(100);
+		parentNode.find('> .accord_con').slideDown(100);
+		//$('#' + targetId).slideDown(100);
 	},
 	//callback
 	reset : () => { //기존에 열려있는 아코디언 닫기
@@ -284,7 +285,10 @@ let selectbox = {
 			$(this).removeClass('active');
 		});
 		rootElement.addClass('active');
-		target.slideDown(100);
+		target.slideDown(100 , function(){
+			$(this).find('.selected button').focus();
+			selectbox.optionLoop(target);
+		})
 	},
 	slideUp : (target) => {
 		rootElement.removeClass('active');
@@ -302,9 +306,32 @@ let selectbox = {
 			html = $(this).html();
 			$(this).closest('li').addClass('selected').siblings().removeClass('selected');
 			selectbox.slideUp(slideTarget);
-			changeTarget.html(html);
+			changeTarget.html(html).focus();
 		});
 	},
+	optionLoop : (target) =>{
+		$(document).on('keydown' , target , function(e){
+			targetEl = target.find('button[type="button"]');
+			targetLen = targetEl.length - 1;
+			targetfocusItem = $(':focus'); //팝업내 포커스 된 요소
+			focusIndex = targetEl.index(targetfocusItem);//팝업내 포커스된 요소 index 체크
+			if(e.keyCode === 9 && !e.shiftKey){
+				focusIndex = focusIndex + 1
+				if(focusIndex > targetLen){
+					targetEl.eq(0).focus();
+					e.preventDefault(); //keyup event 방지
+				}
+			}
+			if(e.keyCode === 9 && e.shiftKey){
+				focusIndex = focusIndex - 1
+				console.log(focusIndex)
+				if(focusIndex < 0){
+					targetEl[targetLen].focus(); //배열 순번으로 포커스 요소 선택가능
+					e.preventDefault(); //keyup event 방지
+				}
+			}
+		});
+	}
 }
 
 // check box
@@ -516,9 +543,8 @@ let inputbox = {
 
 //vaildation
 let vaildChk = {
-	click : (idx) => { //클릭 이벤트로 vaildation 체크시
-		vaildCon = $('#' + idx);
-		vaildCon.find('input[type="checkbox"]').each(function(){
+	click : (targetId) => { //클릭 이벤트로 vaildation 체크시
+		$(targetId).find('input[type="checkbox"]').each(function(){
 			prop = $(this).prop('checked');
 			if(prop === false){
 				$(this).next('label').addClass('error');
@@ -557,6 +583,77 @@ let charChange = {
 	}
 }
 
+let graph = {
+	event : (option) => {
+		graphTarget = $(option.target)
+		total = graphTarget.find('.graph_con').attr('data-total');
+		eachTarget = graphTarget.find('.graph_items');
+		graph.optionEvent(option);
+	},
+	optionEvent : (options) =>{
+		eachTarget.each(function(index){
+			value = $(this).attr('data-value');
+			tHeight = value / total * 100;
+			$(this).css({'height': tHeight + '%' , 'transition':'height .5s' , 'transition-delay': .2 * index + 's'});//transition 값은 가이드에 맞추어 조정해야함
+			tHeight > 100 ? $(this).addClass('excess') : false;
+		});
+	},
+	reset : () => {
+		
+	},
+	canvas : (idx) => {
+		const ctx = $('#' + idx).get(0).getContext('2d');
+		
+		ctx.fillStyle = 'rgb(255,0,0)';
+		ctx.fillRect(10 , 10 , 50 , 50);
+		
+		//ctx.fillStyle = "rgb(200,0,0)";
+        //ctx.fillRect (10, 10, 50, 50);
+		console.log(ctx)
+	},
+	ex : () =>{
+		const canvas = document.getElementById('graph2');
+		const ctx = canvas.getContext('2d');
+	   
+		var width = canvas.clientWidth;
+		var height = canvas.clientHeight;
+	
+		var value = [100, 200, 300];
+		var degree = 360;
+		const radius = 50;
+	
+		var sum = value.reduce((a, b) => a + b);
+		var conv_array = value.slice().map((data)=>{
+			var rate = data / sum;
+			var myDegree = degree * rate;
+			return myDegree;
+		});
+	
+	
+		degree = 0;
+		var event_array = value.slice().map( arg=> []);  //구간을 담는 배열, 이벤트시 활용한다.
+		for(var i=0;i < conv_array.length;i++){
+			var item = conv_array[i];
+			ctx.save();
+			ctx.beginPath();
+			ctx.moveTo(width/2, height/2);
+			if(i == 0){ 
+				ctx.arc(width/2, height/2, radius, (Math.PI/180)*0, (Math.PI/180)* item , false);
+				degree = item;
+				event_array[i] = [0, degree];
+			} else {
+				ctx.arc(width/2, height/2, radius, (Math.PI/180)*degree, (Math.PI/180)*(degree + item), false);
+				event_array[i] = [degree, degree+item];
+				degree =  degree + item;
+			}
+			ctx.closePath();
+			ctx.stroke();
+			ctx.restore();
+		}
+		console.log(event_array);
+	}
+}
+
 let commonUi = {//공통적으로 로드할 function 정의
 	init : function(){
 	
@@ -571,6 +668,11 @@ $(document).ready(function(){
 	charChange.init();
 	inputbox.event();
 	selectbox.init();
+	
+	graph.event({
+		target : '#graph , #graph1' ,
+		type : 'rect , circle , line',
+	})
 });
 
 

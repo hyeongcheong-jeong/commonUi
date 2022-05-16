@@ -113,8 +113,8 @@ input[type="checkbox"] + label , input[type="radio"] + label{cursor:pointer;}
 /*modal-popup*/
 .modal-open{overflow:hidden;}
 .modal-popup{display:none;position:fixed;left:0;top:0;width:100%;height:100%;justify-content:center;align-items:center;z-index:999}
-.modal-popup:before{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.5);opacity:1;animation:otp .5s;}
-.modal-popup[data-bg="false"]:before{display:none;}
+.modal-popup.active:before{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.5);opacity:1;animation:otp .3s}
+.modal-popup[data-bg="false"]:before{display:none !important;}
 .modal-wrap{position:relative;background:#fff;width:640px;height:calc(100%-320px);border-radius:16px}
 .modal-head{position:relative;padding:20px;}
 .modal-body{position:relative;}
@@ -135,11 +135,6 @@ input[type="checkbox"] + label , input[type="radio"] + label{cursor:pointer;}
 .modal-popup.modal-alert .modal-btn{width:100%;border-top:1px solid #ddd;}
 .modal-popup.modal-alert .modal-btn > a , .modal-popup.modal-alert .modal-btn > button{width:50%;border:none;}
 .modal-popup.modal-alert .modal-btn > a + a , .modal-popup.modal-alert .modal-btn > button + button{border-left:1px solid #ddd;margin-left:0;}
-
-@keyframes otp{
-    0%{opacity:0;}
-    100%{opacity:1;}
-}
 
 /*table*/
 table{width:100%;table-layout:fixed;border-top:2px solid #000}
@@ -237,6 +232,21 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 
 .selectbox_wrap.small .selectbox_header button{height:64px}
 .selectbox_wrap.small .selectbox_body{top:76px}
+
+/*graph*/
+.graph_wrap{position:relative;}
+.graph_con{position:relative;width:100%;height:500px;display:flex;justify-content:space-around;border:1px solid #ccc}
+.graph_wrap.rect .graph_con{align-items:flex-end;overflow:hidden;}
+.graph_wrap.rect .graph_con .graph_items{position:relative;display:flex;width:100px;height:0;background:#777;align-items:flex-end;justify-content:center;padding:10px;color:#fff;}
+.graph_wrap.rect .graph_con .graph_items.excess{background:#000fff}
+
+.graph_wrap.circle .graph_con .graph_items{position:relative;width:300px;height:300px;}
+
+
+@keyframes otp{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
 
 /*content*/
 .headline{font-size:40px;line-height:50px;font-weight:600;padding:12px 0;margin-bottom:24px;border-bottom:1px solid #000;width:100%;}
