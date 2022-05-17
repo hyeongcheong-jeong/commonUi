@@ -1367,7 +1367,6 @@
             </pre>
             <!--수직형태 막대 그래프-->
             <div class="graph_wrap rect-v" id="graph">
-                <h3>총금액 : <span></span></h3>
                 <div class="graph_con" data-total="10000000">
                     <div class="graph_items" data-value="2000000"><p>3월</p></div>
                     <div class="graph_items" data-value="11000000"><p>4월</p></div>
@@ -1376,15 +1375,30 @@
             </div>
             <!--수직형태 막대 그래프-->
             <div class="graph_wrap rect-h" id="graph1">
-                <h3>총금액 : <span></span></h3>
                 <div class="graph_con" data-total="10000000">
                     <div class="graph_items" data-value="1000000"><p>3월</p></div>
                     <div class="graph_items" data-value="2000000"><p>4월</p></div>
                     <div class="graph_items" data-value="6000000"><p>5월</p></div>
                 </div>
             </div>
-            <!--구간 충족형 라인 그래프 -->
-            <button type="button" onclick="graph.reset();">reset</button>
+            <!--구간 충족형 라인 그래프(case1) -->
+            <div class="graph_wrap line" id="graph2">
+                <div class="graph_con" data-total="500000">
+                    <div class="graph_items first" data-value="0"><p class="price"></p></div>
+                    <div class="graph_items last" data-value="500000"><p class="price"></p></div>
+                    <div class="graph_fill">450000</div>
+                </div>
+            </div>
+            <!--구간 충족형 라인 그래프(case2) -->
+            <div class="graph_wrap line" id="graph3">
+                <div class="graph_con" data-total="500000">
+                    <div class="graph_items" data-value="150000"><p class="price"></p></div>
+                    <div class="graph_items" data-value="300000"><p class="price"></p></div>
+                    <div class="graph_items" data-value="400000"><p class="price"></p></div>
+                    <div class="graph_fill">250000</div>
+                </div>
+            </div>
+            <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset();">reset</button></div>
         </div>
 	</body>
     <script>

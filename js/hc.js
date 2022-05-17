@@ -467,7 +467,7 @@ let inputbox = {
 		$(document).on('keyup , change' , vaildEle , function(){//completed
 			val = $(this).val();
 			rowType = $(this).closest(rootNode).find('.box_input_cell').length;
-			if(val !== '' && !$(this).attr('readonly')	){
+			if(val !== ''){
 				$(this).closest(parentEle)
 				.removeClass('error')//vaildation check시에 에러 클레스 제거 필요시 사용
 				.addClass('completed')
@@ -585,8 +585,8 @@ let graph = {
 	event : (eventTarget , option) => {
 		graphTarget = $('#' + eventTarget);
 		total = graphTarget.find('.graph_con').attr('data-total');
+		fill = graphTarget.find('.graph_fill').text();
 		eachTarget = graphTarget.find('.graph_items');
-		gPos = graphTarget.attr('data-position');
 		graph.action(option);
 
 
@@ -594,16 +594,31 @@ let graph = {
 	action : (options) =>{
 		eachTarget.each(function(index){
 			value = $(this).attr('data-value');	
-			options.position === 'vertical' 
-			? (tHeight = value / total * 100 + '%' , tWidth = 100 + 'px' , transHw = 'height') 
-			: (tHeight = 50 + 'px' , tWidth = value / total * 100 + '%' , transHw = 'width');
-			$(this).css({
-				'width': tWidth ,
-				'height' : tHeight , 
-				'transition': transHw + ' .5s' , 
-				'transition-delay': .2 * index + 's'
-			})//transition 값은 가이드에 맞추어 조정해야함
-			value / total * 100 > 100 ? $(this).addClass('excess') : false;
+			if(options.type === 'rect'){//막대 그래프 타입일때
+				options.position === 'vertical' 
+				? (tHeight = value / total * 100 + '%' , tWidth = 100 + 'px' , transHw = 'height') //세로형일때
+				: (tHeight = 50 + 'px' , tWidth = value / total * 100 + '%' , transHw = 'width'); //가로형일때
+				$(this).css({
+					'width': tWidth ,
+					'height' : tHeight , 
+					'transition': transHw + ' .5s' , 
+					'transition-delay': .2 * index + 's'
+				})//transition 값은 가이드에 맞추어 조정해야함
+				value / total * 100 > 100 ? $(this).addClass('excess') : false;
+			} else {
+				leftPos = value / total * 100 + '%';
+				console.log(fill , value)
+				fill >= value ? $(this).addClass('current') : console.log('456')
+				value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g , ',');//3단위 콤마
+				$(this).find('.price').text(value + '원');
+
+				$(this).css({
+					left : leftPos,
+				});	
+			}
+		});
+		graphTarget.find('.graph_fill').animate({'width': fill / total * 100 + '%'} , 300 , function(){
+			//graph 로딩후 실행할 function;
 		});
 	},
 	reset : () => {
@@ -680,11 +695,17 @@ $(document).ready(function(){
 	graph.event('graph' , {
 		type : 'rect', // circle , line
 		position : 'vertical', //horizontal
-	})
+	});
 	graph.event('graph1' , {
 		type : 'rect', // circle , line
 		position : 'horizontal', //vertical
-	})
+	});
+	graph.event('graph2' , {
+		type : 'line', // circle , line
+	});
+	graph.event('graph3' , {
+		type : 'line', // circle , line
+	});
 });
 
 

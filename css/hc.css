@@ -235,11 +235,27 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 
 /*graph*/
 .graph_wrap{position:relative;}
-.graph_con{position:relative;width:100%;height:500px;display:flex;justify-content:space-around;border:1px solid #ccc}
+.graph_wrap + .graph_wrap{margin-top:36px}
+.graph_wrap .graph_con{position:relative;width:100%;height:500px;display:flex;justify-content:space-around;border:1px solid #ccc}
 .graph_wrap[class*="rect-h"] .graph_con{flex-direction:column;}
 .graph_wrap[class*="rect-v"] .graph_con{align-items:flex-end;overflow:hidden;}
 .graph_wrap[class*="rect"] .graph_con .graph_items{position:relative;display:flex;width:0;height:0;background:#777;align-items:flex-end;justify-content:center;padding:10px;color:#fff;}
 .graph_wrap[class*="rect"] .graph_con .graph_items.excess{background:#000fff}
+
+.graph_wrap.line .graph_con{width:100%;height:auto;border:none;}
+.graph_wrap.line .graph_con:before{content:'';display:block;width:100%;height:10px;background:#ccc}
+.graph_wrap.line .graph_con .graph_items:before{content:'';display:block;width:20px;height:20px;border-radius:100%;border:1px solid #777;background:#fff;position:absolute;top:-25px}
+.graph_wrap.line .graph_con .graph_items:before:not(.first):not(.last){left:50%;transform:translateX(-50%);}
+.graph_wrap.line .graph_con .graph_items.first:before{left:-3px}
+.graph_wrap.line .graph_con .graph_items.last:before{right:-5px}
+.graph_wrap.line .graph_con .graph_items.current:before{background:#000fff;border:none;}
+.graph_wrap.line .graph_con .graph_items.error:before{background:#ff0000;border:none;}
+
+.graph_wrap.line .graph_con .graph_items{position:absolute;bottom:-32px;display:flex;}
+.graph_wrap.line .graph_con .graph_items.first{left:0 !important;}
+.graph_wrap.line .graph_con .graph_items.last{right:0 !important;left:unset !important}
+.graph_wrap.line .graph_fill{position:absolute;background:#000fff;height:100%;text-indent:-9999em;overflow:hidden;width:0;left:0}
+
 
 .graph_wrap.circle .graph_con .graph_items{position:relative;width:300px;height:300px;}
 
