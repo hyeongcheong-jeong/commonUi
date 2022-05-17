@@ -287,7 +287,7 @@ let selectbox = {
 		rootElement.addClass('active');
 		target.slideDown(100 , function(){
 			$(this).find('.selected button').focus();
-			selectbox.optionLoop(target);
+			selectbox.optionLoop();
 		})
 	},
 	slideUp : (target) => {
@@ -309,9 +309,9 @@ let selectbox = {
 			changeTarget.html(html).focus();
 		});
 	},
-	optionLoop : (target) =>{
-		$(document).on('keydown' , target , function(e){
-			targetEl = target.find('button[type="button"]');
+	optionLoop : () =>{
+		$(document).on('keydown' , '.selectbox_list button[type="button"]' , function(e){
+			targetEl = $(this).closest('.selectbox_list').find('button[type="button"]');
 			targetLen = targetEl.length - 1;
 			targetfocusItem = $(':focus'); //팝업내 포커스 된 요소
 			focusIndex = targetEl.index(targetfocusItem);//팝업내 포커스된 요소 index 체크
@@ -324,7 +324,6 @@ let selectbox = {
 			}
 			if(e.keyCode === 9 && e.shiftKey){
 				focusIndex = focusIndex - 1
-				console.log(focusIndex)
 				if(focusIndex < 0){
 					targetEl[targetLen].focus(); //배열 순번으로 포커스 요소 선택가능
 					e.preventDefault(); //keyup event 방지
@@ -405,7 +404,6 @@ let checkbox = {
 		}
 		
 	},
-
 	//callback
 	checkVaild : (chkId , btnId) => { //vaildation check callback;
 		$target = $('#' + chkId);
@@ -584,28 +582,38 @@ let charChange = {
 }
 
 let graph = {
-	event : (option) => {
-		graphTarget = $(option.target)
+	event : (eventTarget , option) => {
+		graphTarget = $('#' + eventTarget);
 		total = graphTarget.find('.graph_con').attr('data-total');
 		eachTarget = graphTarget.find('.graph_items');
-		graph.optionEvent(option);
+		gPos = graphTarget.attr('data-position');
+		graph.action(option);
+
+
 	},
-	optionEvent : (options) =>{
+	action : (options) =>{
 		eachTarget.each(function(index){
-			value = $(this).attr('data-value');
-			tHeight = value / total * 100;
-			$(this).css({'height': tHeight + '%' , 'transition':'height .5s' , 'transition-delay': .2 * index + 's'});//transition 값은 가이드에 맞추어 조정해야함
-			tHeight > 100 ? $(this).addClass('excess') : false;
+			value = $(this).attr('data-value');	
+			options.position === 'vertical' 
+			? (tHeight = value / total * 100 + '%' , tWidth = 100 + 'px' , transHw = 'height') 
+			: (tHeight = 50 + 'px' , tWidth = value / total * 100 + '%' , transHw = 'width');
+			$(this).css({
+				'width': tWidth ,
+				'height' : tHeight , 
+				'transition': transHw + ' .5s' , 
+				'transition-delay': .2 * index + 's'
+			})//transition 값은 가이드에 맞추어 조정해야함
+			value / total * 100 > 100 ? $(this).addClass('excess') : false;
 		});
 	},
 	reset : () => {
-		
+		console.log(eachTarget)
 	},
 	canvas : (idx) => {
 		const ctx = $('#' + idx).get(0).getContext('2d');
 		
 		ctx.fillStyle = 'rgb(255,0,0)';
-		ctx.fillRect(10 , 10 , 50 , 50);
+		ctx.fillRect(10 , 10 , 50 , 50); // x, y , width , height;
 		
 		//ctx.fillStyle = "rgb(200,0,0)";
         //ctx.fillRect (10, 10, 50, 50);
@@ -669,9 +677,13 @@ $(document).ready(function(){
 	inputbox.event();
 	selectbox.init();
 	
-	graph.event({
-		target : '#graph , #graph1' ,
-		type : 'rect , circle , line',
+	graph.event('graph' , {
+		type : 'rect', // circle , line
+		position : 'vertical', //horizontal
+	})
+	graph.event('graph1' , {
+		type : 'rect', // circle , line
+		position : 'horizontal', //vertical
 	})
 });
 

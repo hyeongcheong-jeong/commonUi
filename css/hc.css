@@ -236,9 +236,10 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 /*graph*/
 .graph_wrap{position:relative;}
 .graph_con{position:relative;width:100%;height:500px;display:flex;justify-content:space-around;border:1px solid #ccc}
-.graph_wrap.rect .graph_con{align-items:flex-end;overflow:hidden;}
-.graph_wrap.rect .graph_con .graph_items{position:relative;display:flex;width:100px;height:0;background:#777;align-items:flex-end;justify-content:center;padding:10px;color:#fff;}
-.graph_wrap.rect .graph_con .graph_items.excess{background:#000fff}
+.graph_wrap[class*="rect-h"] .graph_con{flex-direction:column;}
+.graph_wrap[class*="rect-v"] .graph_con{align-items:flex-end;overflow:hidden;}
+.graph_wrap[class*="rect"] .graph_con .graph_items{position:relative;display:flex;width:0;height:0;background:#777;align-items:flex-end;justify-content:center;padding:10px;color:#fff;}
+.graph_wrap[class*="rect"] .graph_con .graph_items.excess{background:#000fff}
 
 .graph_wrap.circle .graph_con .graph_items{position:relative;width:300px;height:300px;}
 
