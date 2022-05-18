@@ -6,13 +6,13 @@ let tabChange = {
 	focusEl : $(['[aria-selected]']), //
 	//tablist : $('[data-rule="tablist"]') , // tab list 
 	init : function(){
+		$('[data-rule="tab"]').attr('onclick' , 'return false;')
 		_this = this;
 		_this.event(_this);
 		_this.keyEvent();
 	},
 	event : function(){
 		$(document).on('click' , _this.tab , function(e){
-			e.preventDefault(); //링크 및 앵커 이동 방지
 			target = $(e.target); // 이벤트 타겟
 			if(target.attr('data-rule') !=='tab'){
 				target = target.closest('[data-rule="tab"]'); // 탭구조가 다를시에 타겟 재조정
@@ -36,7 +36,7 @@ let tabChange = {
 		});
 		
 	},
-	keyEvent : function(){ //접근성 탭 좌우 버튼
+	keyEvent : () =>{ //접근성 탭 좌우 버튼
 		$(document).on('keydown',  '[data-rule="tablist"]' , function(e){
 			if(e.keyCode === 39){
 				console.log('123');
@@ -45,12 +45,14 @@ let tabChange = {
 			}
 		});	
 	},
-	focusIn : function(){ //키보드로 진입시 활성화된 탭이 첫번째가 아닐때 포커스 재조정 
+	focusIn : () => { //키보드로 진입시 활성화된 탭이 첫번째가 아닐때 포커스 재조정 
 		
 	},
-	reload : function(){
+	reset : (tabCls , tabConCls) => {
+	},
+	reload : () => {
 		
-	}
+	},
 }
 /* 접근성(auto-caption) */
 let accessTable = {
@@ -76,7 +78,8 @@ let accessTable = {
 			});
 			$(this).find('caption').html(title + ' - ' + scope + '항목으로 구성된 표입니다.')
 		});
-	}
+	},
+	
 }
 
 /* modal-popup */
@@ -201,11 +204,11 @@ let accord = {
 		_this.setShow();//초기 펼침 형태 셋팅시 사용
 	}, 
 	event : () => {
-		parentEle = '.accord_items , .accord_list_items';//parent element
+		parentElement = '.accord_items , .accord_list_items';//parent element
 		exceptEle = '.accord_list_items , .chk_wrap';//예외처리할 클레스
 		$(document).on('click' , '.accord_btn' , function(){
 			rootEle = $(this).closest('.accord_wrap');
-			parentNode = $(this).closest(parentEle);
+			parentNode = $(this).closest(parentElement);
 			targetId = $(this).attr('aria-controls');
 			if(parentNode.hasClass('active')){
 				accord.slideUp();
@@ -221,11 +224,13 @@ let accord = {
 	},
 	slideUp : () => { //슬라이드 업
 		parentNode.removeClass('active');
-		$('#' + targetId).slideUp(100);
+		parentNode.find('> .accord_con').slideUp(100);
+		//$('#' + targetId).slideUp(100);
 	},
 	slideDown : () => { //슬라이드 다운
 		parentNode.addClass('active');
-		$('#' + targetId).slideDown(100);
+		parentNode.find('> .accord_con').slideDown(100);
+		//$('#' + targetId).slideDown(100);
 	},
 	//callback
 	reset : () => { //기존에 열려있는 아코디언 닫기
@@ -233,7 +238,7 @@ let accord = {
 		parentNode.siblings().children('.accord_head').find('.accord_btn').attr('aria-expanded' , 'false');
 	},
 	setShow : () => {//초기 펼침 형태 셋팅
-		$(parentEle).each(function(){
+		$(parentElement).each(function(){
 			type = $(this).attr('data-show');
 			if(type === 'true'){
 				$(this).addClass('active').find('.accord_btn').attr('aria-expanded' , 'true');
@@ -254,9 +259,78 @@ let accord = {
 	}
 }
 
-//dropbox123123123123123
-let dropbox = {
-
+// custom select type
+let selectbox = {
+	init : function(){
+		_this = this;
+		_this.event();
+	},
+	event : () => {
+		$(document).on('click' , '.selectbox_header button' , function(){
+			rootElement = $(this).closest('.selectbox_wrap');
+			slideTarget = rootElement.find('.selectbox_body');
+			changeTarget = rootElement.find('.selectbox_header button');
+			if(rootElement.hasClass('active')){
+				$(this).attr('aria-expanded' , false);
+				selectbox.slideUp(slideTarget);
+			} else {
+				$(this).attr('aria-expanded' , true);
+				selectbox.slideDown(slideTarget);
+			}
+		});
+		_this.checkVal();
+	},
+	slideDown : (target) => {
+		$('.selectbox_wrap').each(function(){
+			$(this).removeClass('active');
+		});
+		rootElement.addClass('active');
+		target.slideDown(100 , function(){
+			$(this).find('.selected button').focus();
+			selectbox.optionLoop();
+		})
+	},
+	slideUp : (target) => {
+		rootElement.removeClass('active');
+		target.slideUp(100);
+	},
+	checkVal : () => {
+		$('.selectbox_list li').each(function(){//초기 셀렉트 값 체크
+			if($(this).hasClass('selected')){
+				html = $(this).find('button').html();
+				changeTarget = $(this).closest('.selectbox_wrap').find('.selectbox_header button');
+				return changeTarget.html(html);
+			}
+		});
+		$(document).on('click' , '.selectbox_list button' , function(){
+			html = $(this).html();
+			$(this).closest('li').addClass('selected').siblings().removeClass('selected');
+			selectbox.slideUp(slideTarget);
+			changeTarget.html(html).focus();
+		});
+	},
+	optionLoop : () =>{
+		$(document).on('keydown' , '.selectbox_list button[type="button"]' , function(e){
+			targetEl = $(this).closest('.selectbox_list').find('button[type="button"]');
+			targetLen = targetEl.length - 1;
+			targetfocusItem = $(':focus'); //팝업내 포커스 된 요소
+			focusIndex = targetEl.index(targetfocusItem);//팝업내 포커스된 요소 index 체크
+			if(e.keyCode === 9 && !e.shiftKey){
+				focusIndex = focusIndex + 1
+				if(focusIndex > targetLen){
+					targetEl.eq(0).focus();
+					e.preventDefault(); //keyup event 방지
+				}
+			}
+			if(e.keyCode === 9 && e.shiftKey){
+				focusIndex = focusIndex - 1
+				if(focusIndex < 0){
+					targetEl[targetLen].focus(); //배열 순번으로 포커스 요소 선택가능
+					e.preventDefault(); //keyup event 방지
+				}
+			}
+		});
+	}
 }
 
 // check box
@@ -330,7 +404,6 @@ let checkbox = {
 		}
 		
 	},
-
 	//callback
 	checkVaild : (chkId , btnId) => { //vaildation check callback;
 		$target = $('#' + chkId);
@@ -363,61 +436,113 @@ let checkbox = {
 }
 // input box
 let inputbox = {
-	focusEle : 'input[type="text"] , input[type="number"] , input[type="password"]' ,
-	parentEle : '.box_input , .box_input_cell',
 	event : () => {
+		focusEle = 'input[type="text"] , input[type="number"] , input[type="password"] , .input_btn button , select:not([disabled])';
+		vaildEle = 'input[type="text"] , input[type="number"] , input[type="password"] , select:not([disabled])';
+		rootNode = '.box_input'; //focused , keep 요소
+		parentEle = '.box_input_cell , .input_btn'; //focus-in 요소
+		inputbox.load();//input에 값을 가지고 있는경우
 		inputbox.focus();
 		inputbox.clear();
+		inputbox.masking();//마스킹 요소가 필요할때 사용
 	},
 	focus : () => {
-		$(document).on('focusin' , inputbox.focusEle , function(){//focusin
-			changeEle = $(this).closest('.box_input');
-			changeEle.addClass('focused');
+		$(document).on('focusin' , focusEle , function(){//focusin
+			$(this).closest(rootNode).addClass('focused');
+			$(this).closest(parentEle).addClass('focus-in');
+			if($(this).val().length !== 0 && !$(this).attr('readonly')){
+				$(this).closest(parentEle)
+				.find('.btn_del')
+				.addClass('on');
+			}
 		});
 		
-		$(document).on('focusout' , inputbox.focusEle , function(){//focusout
-			changeEle = $(this).closest('.box_input');
-			changeEle.removeClass('focused')
+		$(document).on('focusout' , focusEle , function(){//focusout
+			$(this).closest(rootNode).removeClass('focused');
+			$(this).closest(parentEle).removeClass('focus-in');
 		});
 		inputbox.keyEvent();
 	},
 	keyEvent : () => {
-		$(document).on('keyup' , inputbox.focusEle , function(){//completed
+		$(document).on('keyup , change' , vaildEle , function(){//completed
 			val = $(this).val();
-			if(val.length !== 0){
-				$(this).closest('.box_input').addClass('completed').find('.btn_del').addClass('on');
+			rowType = $(this).closest(rootNode).find('.box_input_cell').length;
+			if(val !== ''){
+				$(this).closest(parentEle)
+				.removeClass('error')//vaildation check시에 에러 클레스 제거 필요시 사용
+				.addClass('completed')
+				.find('.btn_del')
+				.addClass('on');
+				error.del($(this).closest(parentEle))
 			} else {
-				$(this).closest('.box_input').removeClass('completed').find('.btn_del').removeClass('on');
+				$(this).closest(parentEle).removeClass('completed').find('.btn_del').removeClass('on');
+			}
+
+			if(rowType > 1){//parentEle 가 2개 이상일때 label 제어
+				$(this).closest(rootNode).find('.completed').length === 0 
+				? $(this).closest(rootNode).removeClass('keep')
+				: $(this).closest(rootNode).addClass('keep');
 			}
 		});	
 	},
-	valChk : () => {
-		
-	},
-	clear : () => {
+	clear : () => {//input value 초기화 함수
 		$(document).on('click' , '.btn_del' , function(){//completed
 			clearVal = '';
-			$(this).removeClass('on').closest(inputbox.parentEle)
-			.removeClass('completed').find(inputbox.focusEle).val(clearVal);
+			$(this).removeClass('on')
+			.closest('.box_input_cell')
+			.removeClass('completed')
+			.find(focusEle)
+			.val(clearVal);
 		});
 	},
-	masking : () => {
-		$('input[type="password"]').each(function(){
-			length = $(this).attr('maxlength');
-			target = '.masking';
-			for(i=0; i < length; i++){
-				console.log(i)
+	load : () => {//default value 값이 있을때 label제어
+		$(vaildEle).each(function(){
+			Value = $(this).val();
+			if(Value !== ''){
+				$(this).closest(parentEle).addClass('completed')	
 			}
 		});
-	}
+	},
+	//callback
+	masking : () => {//디자인에 따른 password 마스킹 처리시
+		$('input[type="password"]').each(function(){//maxlength 만큼 마스킹 요소 생성
+			length = $(this).attr('maxlength');
+			$target = $(this).next('.masking')
+			for(i=0; i < length; i++){
+				$target.append('<span></span>'); 
+			}
+		});
+		$(document).on('focusin , click' , 'input[type="password"]' , function(){//value 값이 있을때 커서를 제일 뒤로 보내기
+			charLen = $(this).val().length;
+			$(this).get(0).setSelectionRange(charLen , charLen);
+		});
+		$(document).on('keypress' , 'input[type="password"]' , function(){
+			len = $(this).val().length
+			$target = $(this).next('.masking').children('span'); //타겟 지정
+			$target.eq(len).addClass('current');
+		});
+		$(document).on('keydown' , 'input[type="password"]' , function(e){// backspace 일때 event
+			len = $(this).val().length
+			e.keyCode === 8 ? $target.eq(len - 1).removeClass('current') : false; 
+		});
 
-	
+	},
+	vaildChk : (target , parentNode) => {//validation check
+		$(target).each(function(){
+			val = $(this).val();
+			condition = ''//error 조건 
+			if(val === condition){
+				$(this).closest(parentNode).addClass('error');
+				error.msg('에러메시지 입니다.' , $(this).closest(parentNode));
+			}
+		})	
+	}	
 }
 
+//vaildation
 let vaildChk = {
-	click : (idx) => { //클릭 이벤트로 vaildation 체크시
-		vaildCon = $('#' + idx);
-		vaildCon.find('input[type="checkbox"]').each(function(){
+	click : (targetId) => { //클릭 이벤트로 vaildation 체크시
+		$(targetId).find('input[type="checkbox"]').each(function(){
 			prop = $(this).prop('checked');
 			if(prop === false){
 				$(this).next('label').addClass('error');
@@ -426,14 +551,20 @@ let vaildChk = {
 	}
 }
 
-
+//error msg
 let error = {
-	msg : (txt) =>{
-
+	msg : (errTxt , appendClass) => {
+		html = '<p class="error_msg">' + errTxt + '</p>';
+		$(appendClass).find('.error_msg').length === 0
+		? $(appendClass).append(html)
+		: false;
+	},
+	del : (removeClass) => {
+		$(removeClass).find('.error_msg').remove();
 	}
 }
 
-//< , > 문자열 변경
+//< , > 문자열 변경 가이드에서 pre안에 태그 넣을때 사용
 let charChange = {
 	init : function(){
 		_this = this;
@@ -442,18 +573,116 @@ let charChange = {
 	event : function(){
 		$('pre').each(function(){
 			txt = $(this).html();
-			replaceTxt = txt.replace(/</gi , '&lt;');
-			replaceTxt = replaceTxt.replace(/>/gi , '&gt;');
+			replaceTxt = txt.replace(/</gi , '&lt;'); //정규식 모든 <요소를 &lt;로 변경
+			replaceTxt = replaceTxt.replace(/>/gi , '&gt;'); //정규식 모든 >요소를 &gt;로 변경
 			$(this).html(replaceTxt)
 		});
 		
 	}
 }
 
-let commonUi = {//공통적으로 로드할 function 정의
-	init : function(){
+let graph = {
+	event : (eventTarget , option) => {
+		graphTarget = $('#' + eventTarget);
+		total = graphTarget.find('.graph_con').attr('data-total');
+		fill = graphTarget.find('.graph_fill').text();
+		eachTarget = graphTarget.find('.graph_items');
+		graph.action(option);
+
+
+	},
+	action : (options) =>{
+		eachTarget.each(function(index){
+			value = $(this).attr('data-value');	
+			if(options.type === 'rect'){//막대 그래프 타입일때
+				options.position === 'vertical' 
+				? (tHeight = value / total * 100 + '%' , tWidth = 100 + 'px' , transHw = 'height') //세로형일때
+				: (tHeight = 50 + 'px' , tWidth = value / total * 100 + '%' , transHw = 'width'); //가로형일때
+				$(this).css({
+					'width': tWidth ,
+					'height' : tHeight , 
+					'transition': transHw + ' .5s' , 
+					'transition-delay': .2 * index + 's'
+				})//transition 값은 가이드에 맞추어 조정해야함
+				value / total * 100 > 100 ? $(this).addClass('excess') : false;
+			} else {
+				leftPos = value / total * 100 + '%';
+				console.log(fill , value)
+				fill >= value ? $(this).addClass('current') : console.log('456')
+				value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g , ',');//3단위 콤마
+				$(this).find('.price').text(value + '원');
+
+				$(this).css({
+					left : leftPos,
+				});	
+			}
+		});
+		graphTarget.find('.graph_fill').animate({'width': fill / total * 100 + '%'} , 300 , function(){
+			//graph 로딩후 실행할 function;
+		});
+	},
+	reset : () => {
+		console.log(eachTarget)
+	},
+	canvas : (idx) => {
+		const ctx = $('#' + idx).get(0).getContext('2d');
+		
+		ctx.fillStyle = 'rgb(255,0,0)';
+		ctx.fillRect(10 , 10 , 50 , 50); // x, y , width , height;
+		
+		//ctx.fillStyle = "rgb(200,0,0)";
+        //ctx.fillRect (10, 10, 50, 50);
+		console.log(ctx)
+	},
+	ex : () =>{
+		const canvas = document.getElementById('graph2');
+		const ctx = canvas.getContext('2d');
+	   
+		var width = canvas.clientWidth;
+		var height = canvas.clientHeight;
+	
+		var value = [100, 200, 300];
+		var degree = 360;
+		const radius = 50;
+	
+		var sum = value.reduce((a, b) => a + b);
+		var conv_array = value.slice().map((data)=>{
+			var rate = data / sum;
+			var myDegree = degree * rate;
+			return myDegree;
+		});
+	
+	
+		degree = 0;
+		var event_array = value.slice().map( arg=> []);  //구간을 담는 배열, 이벤트시 활용한다.
+		for(var i=0;i < conv_array.length;i++){
+			var item = conv_array[i];
+			ctx.save();
+			ctx.beginPath();
+			ctx.moveTo(width/2, height/2);
+			if(i == 0){ 
+				ctx.arc(width/2, height/2, radius, (Math.PI/180)*0, (Math.PI/180)* item , false);
+				degree = item;
+				event_array[i] = [0, degree];
+			} else {
+				ctx.arc(width/2, height/2, radius, (Math.PI/180)*degree, (Math.PI/180)*(degree + item), false);
+				event_array[i] = [degree, degree+item];
+				degree =  degree + item;
+			}
+			ctx.closePath();
+			ctx.stroke();
+			ctx.restore();
+		}
+		console.log(event_array);
 	}
 }
+
+let commonUi = {//공통적으로 로드할 function 정의
+	init : function(){
+	
+	}
+}
+
 $(document).ready(function(){
 	tabChange.init();
 	accessTable.init();
@@ -461,6 +690,22 @@ $(document).ready(function(){
 	accord.init();
 	charChange.init();
 	inputbox.event();
+	selectbox.init();
+	
+	graph.event('graph' , {
+		type : 'rect', // circle , line
+		position : 'vertical', //horizontal
+	});
+	graph.event('graph1' , {
+		type : 'rect', // circle , line
+		position : 'horizontal', //vertical
+	});
+	graph.event('graph2' , {
+		type : 'line', // circle , line
+	});
+	graph.event('graph3' , {
+		type : 'line', // circle , line
+	});
 });
 
 
