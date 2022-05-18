@@ -15,7 +15,8 @@ button , input[type="button"] , input[type="submit"]{cursor:pointer}
 {width:100%}
 *:focus-visible{outline:2px solid blue}
 .blind{position:absolute;width:0;height:0;overflow:hidden;}
-pre{padding:20px;background:#000;color:#fff;margin:12px auto 24px;font-size:18px;overflow:auto;}
+pre { margin-bottom:1rem; border-radius:10px 10px 7px 7px;}
+pre code { border-radius:0 0 7px 7px;}
 [class^="box"]{position:relative;}
 input[type="checkbox"] + label , input[type="radio"] + label{cursor:pointer;}
 
@@ -277,3 +278,27 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 .box_table .tbl-tit{margin-bottom:12px;font-size:24px;line-height:34px}
 [data-class="align"] p{margin-bottom:12px;}
 [data-class="button"] .box_btn + .box_btn{margin-top:12px;}
+
+/* code block */
+.code-block-stylish {position:relative; height:40px;}
+.code-block-stylish:after,
+.code-block-stylish:before {position:absolute; content:''; }
+.code-block-stylish:before {
+   background: #313444;
+   border-radius: 10px 10px 0 0;
+   height: 40px;
+   left: 0;
+   top: 0;
+   width: 100%;
+   box-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+}
+.code-block-stylish:after {
+   background: #fc625d;
+   border-radius: 50%;
+   box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+   height: 12px;
+   left: 15px;
+   top: 15px;
+   width: 12px;
+}
+.code-block-stylish span {position: absolute; z-index: 10; right: 13px; margin-top:10px; display:block;  font-size: 16px; color:#ffc940;  font-family:'D2Coding', monospace; text-transform: uppercase;}
