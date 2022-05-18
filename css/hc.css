@@ -244,17 +244,19 @@ table thead th:not(:last-child), table tbody td:not(:last-child) , table tbody t
 
 .graph_wrap.line .graph_con{width:100%;height:auto;border:none;}
 .graph_wrap.line .graph_con:before{content:'';display:block;width:100%;height:10px;background:#ccc}
-.graph_wrap.line .graph_con .graph_items:before{content:'';display:block;width:20px;height:20px;border-radius:100%;border:1px solid #777;background:#fff;position:absolute;top:-25px}
-.graph_wrap.line .graph_con .graph_items:before:not(.first):not(.last){left:50%;transform:translateX(-50%);}
-.graph_wrap.line .graph_con .graph_items.first:before{left:-3px}
-.graph_wrap.line .graph_con .graph_items.last:before{right:-5px}
-.graph_wrap.line .graph_con .graph_items.current:before{background:#000fff;border:none;}
-.graph_wrap.line .graph_con .graph_items.error:before{background:#ff0000;border:none;}
+.graph_wrap.line .graph_con .graph_items:before{content:'';display:block;width:20px;height:20px;border-radius:100%;border:1px solid #777;background:#fff;position:absolute;top:-25px;}
+.graph_wrap.line .graph_con .graph_items:not(.last):before{left:-3px}
+.graph_wrap.line .graph_con .graph_items.last:before{right:-3px}
+.graph_wrap.line .graph_con .graph_items.current:before{background:#000fff;border:none;transition:background .8s , border .4s}
+.graph_wrap.line .graph_con .graph_items.fail:before , .graph_wrap.line.fail .graph_con .graph_items:before{background:#fff;border:1px solid #ff0000;z-index:10}
 
 .graph_wrap.line .graph_con .graph_items{position:absolute;bottom:-32px;display:flex;}
 .graph_wrap.line .graph_con .graph_items.first{left:0 !important;}
 .graph_wrap.line .graph_con .graph_items.last{right:0 !important;left:unset !important}
-.graph_wrap.line .graph_fill{position:absolute;background:#000fff;height:100%;text-indent:-9999em;overflow:hidden;width:0;left:0}
+.graph_wrap.line .graph_con .graph_items:not(.last) .price{position:relative;display:inline-block;transform:translateX(calc(-50% + 10px))}
+.graph_wrap.line .graph_fill{position:absolute;background:#000fff;height:100%;text-indent:-9999em;overflow:hidden;width:0;left:0;max-width:100%;border-radius:8px;}
+
+.graph_wrap.line.fail .graph_fill{background:#ff0000;}
 
 
 .graph_wrap.circle .graph_con .graph_items{position:relative;width:300px;height:300px;}

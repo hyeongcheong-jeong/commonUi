@@ -580,19 +580,20 @@ let charChange = {
 		
 	}
 }
-
+//그래프
 let graph = {
 	event : (eventTarget , option) => {
 		graphTarget = $('#' + eventTarget);
-		total = graphTarget.find('.graph_con').attr('data-total');
-		fill = graphTarget.find('.graph_fill').text();
-		eachTarget = graphTarget.find('.graph_items');
-		graph.action(option);
-
-
+		option.type !== 'circle'
+		? graph.action(option)
+		: graph.canvas(eventTarget);
 	},
 	action : (options) =>{
+		eachTarget = graphTarget.find('.graph_items');
+		fill = graphTarget.find('.graph_fill').text();
+		console.log(fill)
 		eachTarget.each(function(index){
+			total = $(this).closest('.graph_con').attr('data-total');
 			value = $(this).attr('data-value');	
 			if(options.type === 'rect'){//막대 그래프 타입일때
 				options.position === 'vertical' 
@@ -605,76 +606,250 @@ let graph = {
 					'transition-delay': .2 * index + 's'
 				})//transition 값은 가이드에 맞추어 조정해야함
 				value / total * 100 > 100 ? $(this).addClass('excess') : false;
-			} else {
+			} else { // 구간 충족형 타입일때
 				leftPos = value / total * 100 + '%';
-				console.log(fill , value)
-				fill >= value ? $(this).addClass('current') : console.log('456')
+				fill >= value ? $(this).addClass('current') : $(this).addClass('fail');
 				value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g , ',');//3단위 콤마
 				$(this).find('.price').text(value + '원');
-
 				$(this).css({
 					left : leftPos,
 				});	
 			}
 		});
-		graphTarget.find('.graph_fill').animate({'width': fill / total * 100 + '%'} , 300 , function(){
+		graphTarget.find('.graph_fill').animate({'width': fill / total * 100 + '%'} , 1000 , function(){
 			//graph 로딩후 실행할 function;
+			//console.log($(this).closest('.graph_wrap.line').find('.current').length);
+			$(this).closest('.graph_wrap.line').find('.current').length <= 1 ? $(this).closest('.graph_wrap.line').addClass('') : false;
 		});
 	},
-	reset : () => {
-		console.log(eachTarget)
+	reset : (resetTarget , option) => {
+		graphTarget = $(resetTarget);
+		if(option.type === 'rect'){
+		option.position === 'vertical' 
+		? graphTarget.find('.graph_items').css({'height':'0' , 'transition':'height 0s'})
+		: graphTarget.find('.graph_items').css({'width':'0' , 'transition':'height 0s'});
+		} else {
+			graphTarget.removeClass('fail').find('.graph_items').removeClass('current fail');
+			graphTarget.find('.graph_fill').css('width' , '0');
+		}
+		setTimeout(function(){
+			graph.action(option);
+		} , 100);
 	},
-	canvas : (idx) => {
-		const ctx = $('#' + idx).get(0).getContext('2d');
-		
-		ctx.fillStyle = 'rgb(255,0,0)';
-		ctx.fillRect(10 , 10 , 50 , 50); // x, y , width , height;
-		
-		//ctx.fillStyle = "rgb(200,0,0)";
-        //ctx.fillRect (10, 10, 50, 50);
-		console.log(ctx)
-	},
-	ex : () =>{
-		const canvas = document.getElementById('graph2');
+	canvas : (idx) => {//open 소스 가지고옴.. 공부필요함 ㅠ
+		const canvas = $('#' + idx).get(0);
 		const ctx = canvas.getContext('2d');
-	   
+	
 		var width = canvas.clientWidth;
 		var height = canvas.clientHeight;
-	
-		var value = [100, 200, 300];
+
+		var value = [
+			{number : 2100, text : '강원도'},
+			{number : 1350, text : '서울'},
+			{number : 2180, text : '충청도'},
+			{number : 1440, text : '전라도'},
+			{number : 1160, text : '경상도'}
+		];
 		var degree = 360;
-		const radius = 50;
-	
-		var sum = value.reduce((a, b) => a + b);
-		var conv_array = value.slice().map((data)=>{
-			var rate = data / sum;
+		var radius = width * 0.7 / 2;  //반지름 동적 부여
+
+		if(radius > height * 0.7 / 2){  //캔버스의 넓이와 높이를 고려하여 최소크기 적용
+			radius = height * 0.7 / 2;
+		}
+
+		const colorArray = ['#f5444e', '#4bbfbc', '#fcb362','#949fb0','#c4c24a','#6faab0'];  //색깔배열(지금은 6개..)
+
+		var sum = 0;
+		value.forEach( arg=> sum+= arg.number);
+
+		var conv_array = value.slice().map((data)=>{  //각도가 들어있는 배열
+			var rate = data.number / sum;
 			var myDegree = degree * rate;
 			return myDegree;
 		});
-	
-	
+
 		degree = 0;
-		var event_array = value.slice().map( arg=> []);  //구간을 담는 배열, 이벤트시 활용한다.
-		for(var i=0;i < conv_array.length;i++){
-			var item = conv_array[i];
+		var event_array = value.slice().map( arg=> []);  //이벤트(각도 범위가 있는)용 배열
+
+
+		var current = -1;  //현재 동작중 인덱스
+		var zero = 0;   //각(degree)에 대해서 증가하는 값
+
+		//최초 로딩 이벤트(값 1개씩 점차 증가하며 그리는함수)   -> 계속해서 덮어씌우기를 하므로 가운데가 깔끔하지 않다.(나중에 수정하여보자.)
+		var clr = setInterval(() => {
+			for(var i=0;i < conv_array.length;i++){
+				var item = conv_array[i];
+				if(current == -1|| current == i){
+					current = i;
+					if(zero < item){ //비교
+						if(i == 0){
+							arcMaker(radius, 0, zero, colorArray[i]);
+						} else {
+							arcMaker(radius, degree, degree+zero, colorArray[i]);
+						}
+						zero+=3;             
+					} else {
+						current = i+1;
+						zero = 0;
+						if(i != 0){
+							arcMaker(radius, degree, degree + item, colorArray[i]);
+							event_array[i] = [degree, degree+item];
+							degree =  degree + item;     
+						} else {
+							arcMaker(radius, 0, item, colorArray[i]);
+							degree = item;
+							event_array[i] = [0, degree];
+						}
+					}                               
+				} else if (current == conv_array.length){
+					clearInterval(clr);
+					makeText(-1);
+				} 
+			}
+		}, 1);
+
+		//그리는 기능 분리(같은 내용이 계속 나오므로 분리)
+		function arcMaker(radius, begin, end, color){
 			ctx.save();
+			ctx.lineJoin = 'round'; //선이만나 꺾이는 부분때문에 부여(삐져나오는 현상 방지)
+			ctx.lineWidth = 4; 
+			ctx.beginPath();
+			ctx.moveTo(width/2, height/2);                           
+			ctx.arc(width/2, height/2, radius, (Math.PI/180)*begin, (Math.PI/180)* end , false);
+			ctx.closePath();
+			ctx.fillStyle = color;
+			ctx.strokeStyle = 'white';
+			ctx.fill();
+			ctx.stroke();
+			ctx.restore();        
+			middelMaker();  //가운데 원형그리기 함수 추가
+		}
+
+		//마우스 움직임 이벤트 리스너
+		var drawed = false;
+		canvas.addEventListener('mousemove', function (event) {
+			var x1 = event.clientX - canvas.offsetLeft;
+			var y1 = event.clientY - canvas.offsetTop;
+			var inn = isInsideArc(x1, y1);
+			if(inn.index > -1){  //대상이 맞으면
+				drawed = true;
+				hoverCanvas(inn.index);
+				makeText(inn.index);
+			} else {  //대상이 아니면
+				if(drawed){  //대상이였다가 대상이 이제 아니면
+					hoverCanvas(-1);
+					makeText(-1);
+				}
+				drawed = false;
+			}
+		}); 
+
+		//내부 + 범위에 들어온지 확인하는 함수
+		function isInsideArc(x1, y1){
+			var result1 = false;
+			var result2 = false;
+			var index = -1;
+			var circle_len = radius;
+			var x = width/2 - x1;
+			var y = height/2 - y1;
+			var my_len = Math.sqrt(Math.abs(x * x) + Math.abs(y * y));  //삼각함수
+			if(circle_len >= my_len){
+				result1 = true;
+			}            
+			var rad = Math.atan2(y, x);
+			rad = (rad*180)/Math.PI;  //음수가 나온다
+			rad += 180;  //캔버스의 각도로 변경
+			if(result1){
+				event_array.forEach( (arr,idx) => {   //각도 범위에 해당하는지 확인
+					if( rad >= arr[0] && rad <= arr[1]){
+						result2 = true;
+						index = idx;
+					}
+				});
+			}
+			return {result1:result1, result2:result2 ,index:index, degree : rad};
+		}
+
+		
+		//마우스 오버효과
+		function hoverCanvas(index){
+			ctx.clearRect(0,0,width, height);
+			for (var i = 0; i < conv_array.length; i++) {
+				var item = conv_array[i];
+				var innRadius = radius;
+				if(index == i){  
+					innRadius = radius * 1.1;  //대상이 맞으면 1.1배 크게 키운다.
+				}
+				if (i == 0) {
+					arcMaker(innRadius, 0, item, colorArray[i])
+					degree = item;
+				} else {
+					arcMaker(innRadius, degree, degree + item, colorArray[i])
+					degree = degree + item;
+				}
+			}
+		}
+
+
+		//도(degree)를 라디안(radian)으로 바꾸는 함수
+		function degreesToRadians(degrees) {
+			const pi = Math.PI;
+			return degrees * (pi / 180);
+		}
+
+		//텍스트함수
+		function makeText(index){
+			event_array.forEach((itm, idx) => {
+				var half = (itm[1] - itm[0]) / 2;
+				var degg = itm[0] + half;
+				var xx = Math.cos(degreesToRadians(degg)) * radius * 0.7 + width / 2;
+				var yy = Math.sin(degreesToRadians(degg)) * radius * 0.7 + height / 2;
+
+				var txt = value[idx].text + '';
+				var minus = ctx.measureText(txt).width / 2;  //텍스트 절반길이
+				ctx.save();
+				if(index == idx){
+					ctx.font = "normal bold 18px sans-serif";
+					ctx.fillStyle = 'blue';
+				} else {
+					ctx.font = "normal 14px sans-serif";
+					ctx.fillStyle = 'white';
+				}
+				ctx.fillText(txt, xx - minus, yy);
+				var txt2 = value[idx].number;
+				ctx.fillText(txt2, xx - ctx.measureText(txt2).width / 3, yy + 16);
+				ctx.restore();
+			});
+		}
+
+		//중앙 구멍(원)을 만드는 함수
+		function middelMaker(){
+			ctx.save();
+			ctx.fillStyle='white';
+			ctx.strokeStyle='white';
+			ctx.lineJoin = 'round'; //선이만나 꺾이는 부분때문에 부여(삐져나오는 현상 방지)
+			ctx.lineWidth = 1; 
 			ctx.beginPath();
 			ctx.moveTo(width/2, height/2);
-			if(i == 0){ 
-				ctx.arc(width/2, height/2, radius, (Math.PI/180)*0, (Math.PI/180)* item , false);
-				degree = item;
-				event_array[i] = [0, degree];
-			} else {
-				ctx.arc(width/2, height/2, radius, (Math.PI/180)*degree, (Math.PI/180)*(degree + item), false);
-				event_array[i] = [degree, degree+item];
-				degree =  degree + item;
-			}
-			ctx.closePath();
+			ctx.arc(width/2, height/2, radius/3, (Math.PI/180)*0, (Math.PI/180)* 360 , false);
+			ctx.fill();
 			ctx.stroke();
+			ctx.closePath();
+			ctx.restore();
+
+			var total = 0;
+			value.forEach( (arg)=> total+=arg.number);
+			var minus = ctx.measureText(total).width; 
+			ctx.save();
+			ctx.font = "normal 20px sans-serif";
+			ctx.fillStyle = '#656565';
+			ctx.fillText("Total", width/2 - ctx.measureText("Total").width/2, height/2);
+			ctx.fillText(total, width/2 - minus, height/2 * 1.1);
 			ctx.restore();
 		}
-		console.log(event_array);
-	}
+		
+		
+	},
 }
 
 let commonUi = {//공통적으로 로드할 function 정의
@@ -692,8 +867,8 @@ $(document).ready(function(){
 	inputbox.event();
 	selectbox.init();
 	
-	graph.event('graph' , {
-		type : 'rect', // circle , line
+	graph.event('graph' , { // 그래프 타겟 id , 옵션
+		type : 'rect', // circle , line 
 		position : 'vertical', //horizontal
 	});
 	graph.event('graph1' , {
@@ -701,10 +876,13 @@ $(document).ready(function(){
 		position : 'horizontal', //vertical
 	});
 	graph.event('graph2' , {
-		type : 'line', // circle , line
+		type : 'line', // circle 
 	});
 	graph.event('graph3' , {
 		type : 'line', // circle , line
+	});
+	graph.event('graph4' , {
+		type : 'circle', // circle , line
 	});
 });
 

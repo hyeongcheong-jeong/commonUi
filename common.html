@@ -1372,6 +1372,7 @@
                     <div class="graph_items" data-value="11000000"><p>4월</p></div>
                     <div class="graph_items" data-value="6000000"><p>5월</p></div>
                 </div>
+                <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset('#graph' , {type:'rect' , position:'vertical'});">reset</button></div>
             </div>
             <!--수직형태 막대 그래프-->
             <div class="graph_wrap rect-h" id="graph1">
@@ -1380,14 +1381,16 @@
                     <div class="graph_items" data-value="2000000"><p>4월</p></div>
                     <div class="graph_items" data-value="6000000"><p>5월</p></div>
                 </div>
+                <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset('#graph1' , {type:'rect' , position:'horizontal'});">reset</button></div>
             </div>
             <!--구간 충족형 라인 그래프(case1) -->
-            <div class="graph_wrap line" id="graph2">
-                <div class="graph_con" data-total="500000">
+            <div class="graph_wrap line fail" id="graph2">
+                <div class="graph_con case1" data-total="500000">
                     <div class="graph_items first" data-value="0"><p class="price"></p></div>
                     <div class="graph_items last" data-value="500000"><p class="price"></p></div>
-                    <div class="graph_fill">450000</div>
+                    <div class="graph_fill">300000</div>
                 </div>
+                <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset('#graph2' , {type:'line'});">reset</button></div>
             </div>
             <!--구간 충족형 라인 그래프(case2) -->
             <div class="graph_wrap line" id="graph3">
@@ -1397,8 +1400,13 @@
                     <div class="graph_items" data-value="400000"><p class="price"></p></div>
                     <div class="graph_fill">250000</div>
                 </div>
+                <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset('#graph3' , {type:'line'});">reset</button></div>
             </div>
-            <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset();">reset</button></div>
+            <!--원형 그래프-->
+            <div class="graph_wrap circle">
+                <canvas id="graph4" width="400" height="400"></canvas>
+                <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset('#graph3' , {type:'line'});">reset</button></div>
+            </div>
         </div>
 	</body>
     <script>
