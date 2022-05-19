@@ -1,0 +1,26 @@
+.hljs-ln { width:auto; border-top:0;}
+
+/* for block of numbers */
+.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    text-align: center;
+    color: rgba(170, 170, 170, 50%);
+    vertical-align: top;
+    padding-right: 5px !important;
+    width:18px;
+    /* your custom style here */
+}
+
+.hljs-ln .hljs-ln-numbers { border:0; }
+
+/* for block of code */
+.hljs-ln-code {
+    padding-left: 10px !important;
+    border-bottom: 0 !important;
+}
