@@ -891,9 +891,9 @@ $(document).ready(function(){
 		pay : '2000만원'
 	}
 	const dog = {
-		name : '바둑이',
-		sound : '왈왈',
-		say : function(){
+		name : '바둑이', //key 값
+		sound : '왈왈', //key 값
+		say : function(){ //method 
 			console.log(this.sound);
 		}
 	}
@@ -917,12 +917,12 @@ $(document).ready(function(){
 	//fn1(); fn2(); fn3();
 
 	function Person(name , age , job , interest){//함수 정의
-		this.name = name;
+		this.name = name; // 객체 생성자 표기법에서는 객체의 이름 대신 this를 이용한다
 		this.age = age;
 		this.job = job;
 		this.interest = interest;
 	}
-	let jung1 = new Person('hh' , '33' , 'programer' , ['hobby1','hobby2']);//person 함수 인스턴스 생성
+	let jung1 = new Person('hh' , '33' , 'programer' , ['hobby1','hobby2']);//객체 생성자 표기법을 이용한 person 함수 인스턴스 생성
 	//let jung2 = 'jjjj'
 	//console.log(jung1)
 
@@ -932,8 +932,24 @@ $(document).ready(function(){
 	let a = true && true;
 	a = false && true;
 	a = false && false;
-	console.log(jung1)
-
+	//console.log(jung1)
+	//함수 선인석
+	//ex();
+	(function ex(){console.log('함수 선언식')}())//함수 선언의 경우 해석기 실행을 우선하기 때문에 선언 위치와 무관하게 실행이 가능하다 즉시 선언식으로 호출함
+	
+	//함수 표현석
+	//ex1(); 정의된 함수 위에서 실행을 하면 error가 된다
+	let ex1 = function(){//함수 선언과 다르게 해당 변수를 해석한 후에 실행이 가능하다.
+		console.log('함수 표현식');
+	}
+	//ex1();
+	let ArrTest = {
+		name : 'name',
+		age : 'age',
+		job : 'job',
+		interest : 'interest'
+	}
+	delete ArrTest.name;
 });
 
 
