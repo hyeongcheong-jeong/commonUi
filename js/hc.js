@@ -591,7 +591,6 @@ let graph = {
 	action : (options) =>{
 		eachTarget = graphTarget.find('.graph_items');
 		fill = graphTarget.find('.graph_fill').text();
-		console.log(fill)
 		eachTarget.each(function(index){
 			total = $(this).closest('.graph_con').attr('data-total');
 			value = $(this).attr('data-value');	
@@ -884,6 +883,57 @@ $(document).ready(function(){
 	graph.event('graph4' , {
 		type : 'circle', // circle , line
 	});
+
+	//es2015 예제 
+	const varius = {
+		name : '정형철',
+		job : '프론트개발자',
+		pay : '2000만원'
+	}
+	const dog = {
+		name : '바둑이',
+		sound : '왈왈',
+		say : function(){
+			console.log(this.sound);
+		}
+	}
+	let fnout = (item) =>{
+		console.log(`내 이름은 ${item.name} 이고 직업은 ${item.job} 입니다. 복권당첨금액은 ${item.pay} 입니다.`)
+	}
+	/* arrow function 에서 매개변수가 1개일경우 소괄호 생략이 가능하다
+	let fnout = item => 
+		1줄로 작성 가능시에 return 과 중괄호 생략이 가능하다
+		console.log(`내 이름은 ${item.name} 이고 직업은 ${item.job} 입니다. 복권당첨금액은 ${item.pay} 입니다.`)
+	
+	*/
+	//dog.say();
+	//fnout(varius);//변수를 파리미터로 받아 해당 오브젝트를 표현할수 있음
+	/* javascript 에서의 this */
+	function fn1(){
+		console.log(this);
+	}
+	let fn3 = function(){console.log(this)}
+	let fn2 = () => {console.log(this)}
+	//fn1(); fn2(); fn3();
+
+	function Person(name , age , job , interest){//함수 정의
+		this.name = name;
+		this.age = age;
+		this.job = job;
+		this.interest = interest;
+	}
+	let jung1 = new Person('hh' , '33' , 'programer' , ['hobby1','hobby2']);//person 함수 인스턴스 생성
+	//let jung2 = 'jjjj'
+	//console.log(jung1)
+
+	let today = new Date();// javascript 내장함수를 이용한 인스턴스 생성 
+	//console.log(Date.prototype , Date.prototype.getDay)
+	//연산자
+	let a = true && true;
+	a = false && true;
+	a = false && false;
+	console.log(jung1)
+
 });
 
 
