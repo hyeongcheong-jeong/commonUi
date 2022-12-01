@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <title>javascript 정리</title>      
+        <meta name="description" content="">
+        <meta name="viewport" name="widtn=device-width , initial-scale=1.0">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>업다운 게임</h1>
+        <div class="inputForm">
+            <label for="inputNum">숫자를 입력하세요</label>
+            <input type="text" id="inputNum" vaule="">
+            <button type="button" id="gameStart">실행</button>
+        </div>
+        <script>
+            /*
+                1.랜덤 숫자 생성
+                2.숫자 입력
+                3.validation check
+                4.try 횟수 체크
+                5.입력값과 랜덤숫자 비교
+                6.true , false 반환
+                7.완료시 리셋
+            */
+            
+            /*
+                math 매서드
+                abs => 숫자의 절대값 반환
+                ceil => 인수보다 크거나 같은 수 중에서 가장 작은 정수를 반환 //반내림
+                floor => 인수보다 작거나 같은 수 중에서 가장 큰 정수를 반환 //반올림
+                random => 0과 1사이의 난수를 반환
+                round => 숫자에서 가장 가까운 정수를 반환
+            */
+            const result = Math.random() * 100;
+            let inputNum = document.getElementById('inputNum');
+            let gameStart = document.getElementById('gameStart');
+            
+            randomGame = {
+                answer : Math.round(result),
+                init : function(){
+                    randomGame.validation();
+                },
+                validation : function(){
+                /*
+                    정규식 패턴
+                    a-zA-Z => 영아 알파벳
+                    ㄱ-ㅎ가-힣 => 한글문자
+                    0-9 숫자(-표현) \d 숫자정규식 \D 숫자가 아닌것
+                    \w 밑눌 문자를 포함한 영숫자 문자에 대응 [A-Za-z0-9_]와 동일
+                    \W \w가 아닌것
+                    \s space 공백 반대는 \S
+                    \특수기호 => \?\!\@ 등등
+                    \b 63개문자(영문 대소문자 52개 + 숫자 10개 + _)가 아닌 나머지 문자에 일치하는 경계 반대는 \B
+                    겸색기준 패턴
+                    | OR , []=> 괄호안의 문자들중 하나 OR묶음 , [^문자]=>괄호안의 문자를 제외한것 , ^문자열 => 특정 문자열로 시작 , 문자영@ => 특정문자열로 끝남
+
+                */
+                    let reg = /^[0-9]+$/;//숫자 정규식
+                    let special = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/g;
+                    if(reg.test(inputNum.value)){
+                        return randomGame.action();
+                    } else {
+                        console.log('false')
+                    }
+                },
+                error : function(){
+                    
+                    special.test(inputNum.value);    
+                },
+                action : () => {
+                    alert('action')
+                }
+            }
+            
+            gameStart.addEventListener('click' , randomGame.init);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+/*font-face*/
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+@import url(https://fonts.googleapis.com/css?family=Asap+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Asap);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans|Roboto);
+
+
+/* common */
+*, *:before, *:after {box-sizing:border-box;padding:0;margin:0;list-style:none;text-decoration:none;background:none;border:none;font-size:inherit;font-weight:inherit;color:inherit;}
+html , body{font-size:16px;font-family:'Noto Sans' , Asap , 'Spoqa Han Sans Neo', 'Malgun Gothic', '맑은 고딕', '돋움', Dotum, Sans-serif;}
+button , input[type="button"] , input[type="submit"]{cursor:pointer}
+[class*="_img"] img , .modal-close img
+{width:100%}
+*:focus-visible{outline:2px solid blue}
+.blind{position:absolute;width:0;height:0;overflow:hidden;}
+pre{padding:20px;background:#000;color:#fff;margin:12px auto 24px;font-size:18px;overflow:auto;}
+[class^="box"]{position:relative;}
+input[type="checkbox"] + label , input[type="radio"] + label{cursor:pointer;}

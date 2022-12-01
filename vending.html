@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>javascript class</title>
+    <script src="./js/classes.js"></script>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/vending.css">
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="vending">
+        <h1>커피자판기</h1>
+        <div class="coffee-button-container">
+          <button onclick="customer.putSelectButton('powderA' , this)">밀크 커피</button>
+          <button>블랙 커피</button>
+          <button>율무차</button>
+          <button>우유</button>
+          <button>홍차</button>
+        </div>
+        <div class="coin-slot">
+          
+        </div>
+      </div>
+      <script>
+        const customer = new CoffeeGet();
+      </script>
+    </div>
+  </body>
+</html>
