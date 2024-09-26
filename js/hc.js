@@ -570,11 +570,22 @@ let error = {
 let charChange = {
 	init : function(){
 		_this = this;
-		_this.event();
+		// _this.event();
+		_this.toolbarCreated();
+	},
+	toolbarCreated: function(){
+		$('pre').each(function(){
+			_this = $(this);
+			if(_this.find('code').length) {
+				langclass = _this.find('code').attr('class');
+				langTxt = langclass.replace('language-', '');
+				_this.before('<div class="code-block-stylish"><span>'+ langTxt +'</span></div>');
+			}
+		});
 	},
 	event : function(){
 		$('pre').each(function(){
-			txt = $(this).html();
+			txt = $(this).find('code').html();
 			replaceTxt = txt.replace(/</gi , '&lt;'); //정규식 모든 <요소를 &lt;로 변경
 			replaceTxt = replaceTxt.replace(/>/gi , '&gt;'); //정규식 모든 >요소를 &gt;로 변경
 			$(this).html(replaceTxt)
@@ -853,6 +864,93 @@ let graph = {
 	},
 }
 
+let cardSvg = {
+	init: function() {
+		jQuery('img.svg').each(function () {
+			var $img = jQuery(this);
+			//var imgID = $img.attr('id');
+			var imgClass = $img.attr('class');
+			var imgURL = $img.attr('src');
+			
+			jQuery.get(imgURL, function (data) {
+				// Get the SVG tag, ignore the rest
+				var $svg = jQuery(data).find('svg');
+				
+				// Add replaced image's ID to the new SVG
+				// if(typeof imgID !== 'undefined') {
+				//  $svg = $svg.attr('id', imgID);
+				// }
+				// Add replaced image's classes to the new SVG
+				if (typeof imgClass !== 'undefined') {
+					$svg = $svg.attr('class', imgClass + ' replaced-svg');
+				}
+				
+				// Remove any invalid XML tags as per http://validator.w3.org
+				$svg = $svg.removeAttr('xmlns:a');
+				
+				// Check if the viewport is set, else we gonna set it if we can.
+				if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+					$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+				}
+				
+				// Replace image with new SVG
+				$img.replaceWith($svg);
+				
+			}, 'xml');
+			
+		});
+	},
+	url: function(){
+		if($('.data-clipboard').length > 0) {
+			var $svgBox = $('.svg_icon_box');
+			
+			$svgBox.find('> li').each(function(index){
+				var $this = $(this);
+				var _src = $this.find('button > img').attr('src').split('/');
+				var title = $this.find('button > img').attr('alt');
+				var filename = _src[_src.length-1].split('.')[0];
+				
+				$this.append('<span class="svg-title">'+ title +'</span>');
+				var _text = title.replace(/[`~!@#$%^&*_|+\-=?;:'",.<span>\{\}\[\]\\\/]br[>]/gi, '');
+				
+				$this.prepend('<input class="blind" type="text" id="'+ filename +'" value=\'<img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/'+ filename +'.svg" alt="' + _text + ' 아이콘"/>\'/>');
+				$this.find('.data-clipboard').attr('data-clipboard-target', '#' + filename);
+				
+			});
+			
+			
+			setTimeout(function () {	
+				var clipboard = new ClipboardJS('.data-clipboard');
+				clipboard.on('success', function(e){
+					console.info('Text: ', e.text);
+					
+					alert('복사 되었습니다.');
+					e.clearSelection();
+				});
+				
+				$('#svgColorChange').on('change', function(){
+					var value = $(this).val();
+					var _svg = $svgBox.find('svg');
+					_svg.attr('class',  'svg ' + value);
+					
+					$svgBox.find('> li').each(function(){
+						var _this = $(this);
+						var _copy = _this.find('input').val().split('.')[0];
+						var copy = _copy.split('/');
+						var filename = copy[copy.length-1];
+						var title = _this.find('.svg-title').text();
+						
+						_this.find('input').val('<img class="svg '+ value +'" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/'+ filename + '.svg" alt="'+ title +' 아이콘"/>');
+						
+					});
+					
+					
+				});
+			}, 500);
+		}
+	}
+}
+
 let commonUi = {//공통적으로 로드할 function 정의
 	init : function(){
 	
@@ -867,6 +965,7 @@ $(document).ready(function(){
 	charChange.init();
 	inputbox.event();
 	selectbox.init();
+	cardSvg.init();
 	
 	graph.event('graph' , { // 그래프 타겟 id , 옵션
 		type : 'rect', // circle , line 

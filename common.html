@@ -6,9 +6,14 @@
 		<meta name="viewport" content="width=device-width , initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="keywords" content="">
+        <link type="text/css" rel="stylesheet" href="./css/libs/atom-one-dark.min.css">   
+        <link type="text/css" rel="stylesheet" href="./css/libs/hljs-line.css">
 		<link type="text/css" rel="stylesheet" href="./css/hc.css">
+        
 		<!-- j-query 컴포넌트 임포트 -->
 		<script src="./js/jquery-1.12.4.min.js" ></script>
+        <script src="./js/libs/highlight.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
 		<script src="./js/hc.js"></script>
 	</head>
 	<body>
@@ -131,7 +136,7 @@
             <h1 class="headline">tab-style , 탭 접근성</h1>
             <p>탭 부모 태그에 속성값 data-rule="tablist"를 추가해준다</p>
             <p>탭 콘텐트에는 data-rule="tabpanel"을 추가해 주고 id값은 탭 퍼튼의 aria-controls값과 매칭 시켜 준다</p>
-            <pre>
+            <pre><code class="language-html">
 <!--메인 탭-->
 <div class="tab_default" data-rule="tablist">
     <a href="#panel-1" data-rule="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" title="선택됨" class="current">접근성 탭1</a>
@@ -158,7 +163,7 @@
         <p>접근성 서브탭3번 내용</p>
     </div>
 </div>
-            </pre>
+            </code></pre>
             <!--메인 탭-->
             <div class="tab_default" data-rule="tablist">
                 <a href="#panel-1" onclick="return false;" data-rule="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" title="선택됨" class="current">접근성 탭1</a>
@@ -199,7 +204,7 @@
         <!--table 스타일-->
         <div class="section" data-class="table">
             <h1 class="headline">table-style , auto caption</h1>
-            <pre>
+            <pre><code class="language-html">
 <!--auto caption을 사용할 경우 true , 표의 중제목이 있는경우 data-table-title 추가-->
 <table data-caption-auto="true" data-table-title="표의제목 1" id="notitle">
     <!--auto caption을 사용하면 잘못된 caption값이 들어가도 정상적으로 변경한다. -->
@@ -255,7 +260,7 @@
         </tbody>
     </table>
 </div>                
-            </pre>
+            </code></pre>
             <!-- table 제목이 있는경우는 box_table 단위로 분리-->
             <p>auto-caption을 사용할 경우 table에 data-acption-auto="true" 값을 추가해 준다.</p>
             <p>표의 제목이 있는경우는 class box_table을 이용하여 제목 + table로 구조를 분리 시켜야 한다</p>
@@ -349,7 +354,7 @@
             <h1 class="headline">Popup style , loop focus</h1>
             <!--팝업 기본 구조-->
             <p>팝업 기본 구조</p>
-            <pre>
+            <pre><code class="language-html">
 <!-- modal-popup 기본 구조 -->
 <div class="modal-popup" id="popup">
     <div class="modal-wrap">
@@ -379,9 +384,9 @@
     </div>
 </div>
 <!-- modal-popup 기본 구조 -->
-            </pre>
+            </code></pre>
             <p>알럿 기본 구조</p>
-            <pre>
+            <pre><code class="language-html">
 <!-- modal-alert -->
 <div class="modal-popup modal-alert" id="alert-id">
     <div class="modal-wrap">
@@ -398,10 +403,10 @@
         </div>
     </div>
 </div>
-            </pre>
+            </code></pre>
             <!--e.팝업 기본 구조-->
             <p>팝업 오픈 btn 기본 구조</p>
-            <pre>
+            <pre><code class="language-html">
 <!--팝업 열기 기본타입-->
 <button type="button" id="popupBtn"  onclick="popup.open('popup' , this.id)" class="popup-btn">title 팝업 열기(버튼 id 있음)</button>
 
@@ -411,7 +416,7 @@
 <!--팝업 닫기 -->
 <button type="button" onclick="popup.close('popupId' , 'focusBtnId')">title 팝업 닫기</button> 
 
-            </pre>
+            </code></pre>
             <!--e.팝업 기본 구조-->
             <div class="con-in">
                 <p><button type="button" id="popupBtn"  onclick="popup.open('popup' , this.id)" class="popup-btn">팝업 열기(버튼 id 있음)</button></p>
@@ -525,7 +530,7 @@
         <!-- accordion -->
         <div class="section" data-class="accordion">
             <h1 class="headline">accordion</h1>
-            <pre>
+            <pre><code class="language-html">
 <!--아코디언 1단 기본 구조-->
 <div class="accord_wrap">
     <!--초기 펼침 상태로 셋팅해야 하는경우 data-show 값을 추가해 준다.-->
@@ -548,8 +553,8 @@
         <dd class="accord_con" id="accord_con3" aria-labelledby="accordion3">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
     </dl>
 </div>  
-            </pre>
-            <pre>
+            </code></pre>
+            <pre><code class="language-html">
 <!--2단 아코디언 형태 구조-->
 <div class="accord_wrap">
     <h2 class="h5_fw700_lt  mt32">아코디언 2단 구조</h2>
@@ -606,7 +611,7 @@
         <dd class="accord_con" id="deptCon3" aria-labelledby="deptConBtn3">내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용 내용내용내용내용내용내용내용내용</dd>
     </div>
 </div>
-            </pre>
+            </code></pre>
             <p>accord_head의 버튼 id와 accord_con의 aria-labelledby 값은 동일하게 맞추어 준다.(접근성 관련)</p>
             <p>accord_head의 버튼 aria-contros와 accord_con의 id 값은 동일하게 맞추어 준다. 값이 다르면 동작하지 않는다.</p>
             <p>1단 구조일때는 dl태그로 작성하도록한다.</p>
@@ -699,7 +704,7 @@
         <!-- checkbox -->
         <div class="section" data-class="checkbox">
             <h1 class="headline">동의 checkbox</h1>
-            <pre>
+            <pre><code class="language-html">
 <!--기본 타입-->
 <div class="chk_wrap">
     <h2>기본 타입</h2>
@@ -728,8 +733,8 @@
         </ul>
     </div>
 </div> 
-            </pre>
-            <pre>
+            </code></pre>
+            <pre><code class="language-html">
 <div class="chk_wrap">
     <h2>전체 체크가 있는 3단구조 체크 박스</h2>
     <p class="chk_all">
@@ -828,7 +833,7 @@
         </div>    
     </div>
 </div> 
-            </pre>
+            </code></pre>
             <p>전체 동의가 있는 체크형태와 일반 체크 형태로 구성됨</p>
             <div class="chk_wrap" id="vaildChk1" data-vaildation="">
                 <h2>전체 체크가 있는 3단구조 체크 박스</h2>
@@ -967,7 +972,7 @@
         <!--inputbox(text)-->
         <div class="section" data-class="input-text">
             <h1 class="headline">input text</h1>
-            <pre>
+            <pre><code class="language-html">
 <!--inputbox 기본구조-->
 <div class="box_input">
     <!--label값이 있는경우에는 placeholder를 공란으로 표시-->
@@ -1063,7 +1068,7 @@
         </div>
     </div>
 </div>
-            </pre>
+            </code></pre>
             <div class="box_input">
                 <!--label값이 있는경우에는 placeholder를 공란으로 표시-->
                 <div class="box_input_cell">
@@ -1179,7 +1184,7 @@
         <!-- selectbox (커스텀 selectbox 형태)-->
         <div class="section" data-class="selectbox">
             <h1 class="headline">selectbox (selectbox 형태의 커스텀 ui)</h1>
-            <pre>
+            <pre><code class="language-html">
 <!--이미지가 있는 형태-->
 <div class="selectbox_wrap">
     <div class="selectbox_header">
@@ -1269,7 +1274,7 @@
         
     </div>
 </div>  
-            </pre>
+            </code></pre>
             <div class="selectbox_wrap">
                 <div class="selectbox_header">
                     <button type="button" id="controls-btn" aria-expanded="false" aria-controls="selectbox_body">
@@ -1408,18 +1413,29 @@
                 <div class="box_btn_ctr mt32"><button type="button" class="btn64_outline w25p" onclick="graph.reset('#graph3' , {type:'line'});">reset</button></div>
             </div>
         </div>
+        <script>
+            $('code').each(function () {
+                var code = $(this),
+                html = code.html().trim();
+                
+                code.empty();
+                code.text(html);
+            });
+            hljs.initHighlightingOnLoad();
+            hljs.initLineNumbersOnLoad();
+        </script>
+        <script>
+            $(document).ready(function(){
+                $('#prePopup').css({'height':'270px' , 'overflow-y':'auto'})
+                let hgt = $('#prePopup').outerHeight();
+                let sco = $('#prePopup').prop('scrollHeight');
+                if(hgt < sco){
+                    //alert('스크롤 있음');
+                } else {
+                    //alert('스크롤 없음')
+                }
+                console.log(hgt , sco)
+            })
+        </script>
 	</body>
-    <script>
-        $(document).ready(function(){
-            $('#prePopup').css({'height':'270px' , 'overflow-y':'auto'})
-            let hgt = $('#prePopup').outerHeight();
-            let sco = $('#prePopup').prop('scrollHeight');
-            if(hgt < sco){
-                //alert('스크롤 있음');
-            } else {
-                //alert('스크롤 없음')
-            }
-            console.log(hgt , sco)
-        })
-    </script>
 </html>

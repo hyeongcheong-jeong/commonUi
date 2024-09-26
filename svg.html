@@ -1,0 +1,1467 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,  user-scalable=no">
+  <title>Pictogram:: PC 퍼블리싱 가이드</title>
+  <script src="./js/jquery-1.12.4.min.js"></script>
+  <script src="./js/libs/highlight.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+  <script src="./js/hc.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="./css/libs/atom-one-dark.min.css">
+  <link type="text/css" rel="stylesheet" href="./css/libs/hljs-line.css">
+  <link type="text/css" rel="stylesheet" href="./css/hc.css">
+  <link type="text/css" rel="stylesheet" href="./css/ia.css">
+</head>
+
+<body>
+
+  <header>
+  </header><!-- header -->
+  <div id="ia-wrap">
+    <div id="ia-container">
+      <div id="ia-content">
+        <div class="ia-content-header">
+          <div class="ia-in-sec">
+            <h1 class="ia-h1">PC 퍼블리싱 가이드</h1>
+          </div>
+        </div><!-- // ia-content-header -->
+
+        <ul class="ia-content-body">
+          <div class="txt_caution">
+            <h3 class="h0_eb_lt_size48">Pictogram</h3>
+            <p>기본 예시 :</p>
+            <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/파일명.svg" alt=""/&gt;</code></pre>
+            <p>아이콘 클릭하면 img태그와 함께 복사가 됩니다.</p>
+            <select class="svg-color-change" id="svgColorChange" title="Color 값 변경">
+              <option selected>Color 값 변경</option>
+              <option value="plt_black_m">plt_black_m</option>
+              <option value="plt_black_spt">plt_black_spt</option>
+              <option value="plt_purple_m">plt_purple_m</option>
+              <option value="plt_purple_m">plt_purple_spt</option>
+              <option value="plt_red_m">plt_red_m</option>
+              <option value="plt_red_spt">plt_red_spt</option>
+              <option value="plt_green_m">plt_green_m</option>
+              <option value="plt_green_spt">plt_green_spt</option>
+              <option value="plt_m3_m">plt_m3_m</option>
+              <option value="plt_m3_spt">plt_m3_spt</option>
+              <option value="plt_m2_m">plt_m2_m</option>
+              <option value="plt_m2_spt">plt_m2_spt</option>
+              <option value="plt_m_m">plt_m_m</option>
+              <option value="plt_m_spt">plt_m_spt</option>
+              <option value="plt_x3_m">plt_x3_m</option>
+              <option value="plt_x3_spt">plt_x3_spt</option>
+              <option value="plt_x2_m">plt_x2_m</option>
+              <option value="plt_x2_spt">plt_x2_spt</option>
+              <option value="plt_x_m">plt_x_m</option>
+              <option value="plt_x_spt">plt_x_spt</option>
+              <option value="plt_t3_m">plt_t3_m</option>
+              <option value="plt_t3_spt">plt_t3_spt</option>
+              <option value="plt_xero_m">plt_xero_m</option>
+              <option value="plt_xero_spt">plt_xero_spt</option>
+              <option value="plt_x_m_on">plt_x_on</option>
+              <option value="plt_x_m_off">plt_x_off</option>
+              <option value="plt_x_m_off_on">plt_x_off_on</option>
+              <option value="plt_blue">plt_blue</option>
+              <option value="plt_club">plt_club</option>
+              <option value="plt_pink_m">plt_pink_m</option>
+              <option value="corp_koreanair">corp_koreanair</option>
+            </select>
+          </div>
+          <!-- s: 공통 -->
+          <section class="ia-section">
+            <section class="svg_section">
+              <h4 class="h4_tb">01.카드상품 Card Products</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_001.svg" alt="M카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_002.svg" alt="X카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_003.svg" alt="ZERO카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_004.svg" alt="Gift카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_005.svg" alt="체크카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_006.svg" alt="하이브리드 카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_007.svg" alt="가족카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_008.svg" alt="앱카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_009.svg" alt="Fleet 카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_010.svg" alt="제휴카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_011.svg" alt="특화카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_012.svg" alt="MY BUSINESS카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_013.svg" alt="카멜레온 카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_014.svg" alt="하이패스 카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_015.svg" alt="이마트카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_016.svg" alt="Priority Pass카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cp_017.svg" alt="메탈카드"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">02.카드사용 Service Detailes</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_001.svg" alt="여러카드를 한장으로"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_002.svg" alt="카드발급조회&#47;내게맞는 카드찾기"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_003.svg" alt="카드수령등록&#47;사용/즉시결제"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_004.svg" alt="바로발급서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_005.svg" alt="카드갱신"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_006.svg" alt="카드수령"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_007.svg" alt="카드신청 안심서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_008.svg" alt="현대카드선택/카드결제대금 카드인증"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_009.svg" alt="인기추천카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_010.svg" alt="M카드 우대"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_011.svg" alt="추가카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_012.svg" alt="카드비밀번호 등록/변경"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_013.svg"
+                      alt="부정사용방지/현대카드가 없어 혜택을 받지 못할때" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_014.svg" alt="카드한도"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_015.svg" alt="결제 연기"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_016.svg" alt="리볼빙결제"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_017.svg" alt="현금서비스&#47;신용결제서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_018.svg" alt="할부전환서비스 분할납부(할부전환)"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_019.svg" alt="카드혜택"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_020.svg" alt="기간"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_021.svg"
+                      alt="맞춤형 할부기간&#47;&lt;br&gt;투어예약" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_022.svg" alt="채무면제 유예상품"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_023.svg"
+                      alt="일부 결제금액 이월 약정/상환스케줄 조정서비스" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_024.svg" alt="자동이체"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_025.svg" alt="연체이자/멤버십연회비/연회비로 알아보기"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_026.svg" alt="대출개월별 금리할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_027.svg" alt="무이자할부"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_028.svg"
+                      alt="10일간 이자 면제&lt;br&gt;(날짜변경가능)" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_029.svg"
+                      alt="N일간 이자 면제&lt;br&gt;(날짜변경가능)" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_sd_030.svg" alt="연회비 면제"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">03.포인트 Point</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_001.svg" alt="M포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_002.svg" alt="M포인트 적립/누적"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_003.svg" alt="M포인트 결제안내"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_004.svg" alt="M포인트 구매/결제"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_005.svg" alt="포인트교환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_006.svg"
+                      alt="M포인트 금융상환&#47;&lt;br&gt;포인트 전환" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_007.svg" alt="우대 M포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_008.svg" alt="M포인트 스페셜패션"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_009.svg" alt="M포인트 자동차 구매"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_010.svg" alt="포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_011.svg"
+                      alt="포인트 적립&#47;누적 포인트가 채워진 경우" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_012.svg" alt="포인트 할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_013.svg" alt="세이브포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_014.svg" alt="세이브포인트 적립"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_015.svg" alt="GS포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_016.svg" alt="코스트코포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_017.svg" alt="신세계포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_018.svg" alt="암웨이포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_019.svg" alt="기아멤버스포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_020.svg" alt="배민포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_021.svg" alt="H-Coin"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_022.svg" alt="H-Coin&lt;br&gt;적립"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pt_023.svg" alt="블루멤버스포인트"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">04.캐시백 Cashback</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_001.svg" alt="X캐시백"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_002.svg" alt="시즌 X캐시백"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_003.svg" alt="스페셜 X캐시백"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_004.svg" alt="추가 X캐시백"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_005.svg" alt="캐시백"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_006.svg" alt="캐시백교환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_007.svg" alt="캐시백 이벤트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cb_008.svg" alt="리워드"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">05.금융 Finance</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_001.svg" alt="일괄납부"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_002.svg"
+                      alt="별도연회비없는카드&#47;각종수수료없음/중도상환수수료없음" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_003.svg" alt="혜택금액이 큰 금액으로 알아보기"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_004.svg" alt="1만원부터 이용 가능"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_005.svg" alt="사업한도&#47;자유입출금"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_006.svg" alt="넉넉한 한도"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_007.svg" alt="비용대납"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_008.svg" alt="바로금융서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_009.svg" alt="우대금리 적용 N.N% 특별한 금융혜택"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_010.svg" alt="금리&#47;금리할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_011.svg" alt="상환 중 추가대출"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_012.svg" alt="상환/상환방법"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_013.svg" alt="상환면제서비스/수수료없음"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_014.svg"
+                      alt="Lock&Limit&#47;개인정보 안심서비스/피싱방지개인화" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_015.svg"
+                      alt="사용패턴/VC Partnership/사업분석/신용거래 실적정보 셀프재무진단서비스" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_016.svg" alt="코웨이 렌탈요금"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_017.svg" alt="한국전력공사/전기차 충전"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_018.svg" alt="통신요금&#47;유선상품&#47;인터넷"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_019.svg"
+                      alt="가스&#47;연료&#47;도시가스&#47;연료판매" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_020.svg" alt="교육&lt;br&gt;(출판/서점)"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_021.svg" alt="아파트 관리비"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_022.svg"
+                      alt="기타&lt;br&gt;(영화/VOD/음원/장례)" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_023.svg" alt="One Stop"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_024.svg"
+                      alt="원하/금융&#47;&lt;br&gt;결제서비스/자금관리/Reporting서비스" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_025.svg" alt="달러"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_026.svg" alt="카드론"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_027.svg" alt="모바일 다이렉트론"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_028.svg" alt="다이렉트론"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_029.svg" alt="인터넷대출"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_030.svg" alt="주택담보대출&lt;br&gt;"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_031.svg" alt="사업자대출"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_032.svg" alt="신용대출(개인금융)"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_033.svg"
+                      alt="상황별로 알아보는 내게맞는 금융상품/아이디 찾기" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_034.svg"
+                      alt="우량회원&#47;&lt;br&gt;재이용고객 우대서비스" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_035.svg" alt="부가세"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_036.svg" alt="세금계산서(비용처리)"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_037.svg" alt="세무지원"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_038.svg" alt="세금절감"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_039.svg" alt="신용정보"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_040.svg" alt="신청인 신용정보수집"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_041.svg"
+                      alt="신용정보 조회 심사중/신청인 신용에 대한 다면평가" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_042.svg"
+                      alt="신용관리&#47;&lt;br&gt;신용정보관리서비스/연체없는신용관리/자유로운 결제 비율 설정" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_043.svg" alt="신용안심서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_044.svg" alt="제휴은행&lt;br&gt;ATM/CD"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_045.svg" alt="결제편의/회계지원"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_046.svg" alt="원리금균등상환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_047.svg" alt="원금균등상환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_048.svg" alt="거치후상환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_049.svg" alt="만기일시상환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_050.svg" alt="마이너스상환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_051.svg" alt="금리할인 이벤트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_052.svg"
+                      alt="낮은 이자율&#47;&lt;br&gt;이자율 할인 N%" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_053.svg" alt="우대 이자율"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_054.svg"
+                      alt="지점(거점)/대관 편의점/가맹점/Stay" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_055.svg" alt="한 금융회사로 전 금융권 일괄변경"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_056.svg" alt="아파트시세조회"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_057.svg" alt="근저당설정 해지서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_058.svg" alt="경매"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_059.svg" alt="이용약관"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_060.svg"
+                      alt="각종 조회&#47;설문으로 알아보는 내게 맞는 금융상품&#47;블랙스튜디오심사" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_061.svg"
+                      alt="공통조건&#47;유서류&#47;회원가입&#47;개별 금융회사에 일일이 신청/맞춤 견적 확인" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_062.svg" alt="무서류"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_063.svg"
+                      alt="개인정보 변경&#47;&lt;br&gt;기획/개발" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_064.svg" alt="입금 내역/결제정보 관리/결제서비스관련"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_065.svg" alt="심사반려"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_066.svg" alt="소득공제내역"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_067.svg"
+                      alt="N만원 이하 &lt;br&gt;ex) 5만원 이하" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_068.svg"
+                      alt="N만원 이상&#47;목돈&lt;br&gt;ex) 5만원 이상/목돈" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_069.svg"
+                      alt="N-N만원&lt;br&gt;ex) 5~10만원" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_070.svg"
+                      alt="직접신청할인&#47;&lt;br&gt;금액차감" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_071.svg" alt="할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_072.svg" alt="기본할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_073.svg" alt="시즌스페셜할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_fin_074.svg" alt="추가할인"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">06.공간 Space</h4>
+              <pre><code class="lang">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_001.svg" alt="연령/성별"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_002.svg" alt="주부/유아동반가능"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_003.svg" alt="비상구"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_004.svg" alt="소화기"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_005.svg" alt="CCTV"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_006.svg" alt="PASSCARD"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_007.svg" alt="알림/공지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_008.svg" alt="머리 조심"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_009.svg" alt="눈으로만 작품 감상"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_010.svg" alt="밟을 수 있는 작품"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_011.svg" alt="기대지마세요"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_012.svg" alt="금연"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_013.svg" alt="출구 아님"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_014.svg" alt="전문촬영금지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_015.svg" alt="외부음식&lt;br&gt;반입불가"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_016.svg" alt="애완동물&lt;br&gt;반입불가"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_017.svg"
+                      alt="슬리퍼/등산&middot;운동복&lt;br&gt;착용불가" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_018.svg" alt="백팩 착용금지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_019.svg" alt="작품 터치 금지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_020.svg" alt="밟을 수 없는 작품"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_021.svg" alt="미취학아동&lt;br&gt;입장불가"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_022.svg" alt="쿠킹클래스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_023.svg" alt="와인&#47;주류"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_024.svg" alt="맥주"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_025.svg" alt="차"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_026.svg" alt="디저트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_027.svg" alt="Happy Hour"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_028.svg" alt="Snack Day"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_029.svg" alt="요리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_030.svg" alt="일식"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_031.svg" alt="한식"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_032.svg" alt="향신료"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_033.svg" alt="갑각류"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spa_034.svg" alt="파티"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">07.기타 ETC</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_001.svg" alt="공간 투어"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_002.svg" alt="입주"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_003.svg" alt="Photo Studio"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_004.svg" alt="Safety Training"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_005.svg" alt="Meeting Room"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_006.svg" alt="Testing Room"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_007.svg" alt="Shower Room"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_008.svg" alt="Nap Room"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_009.svg" alt="코딩교육"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_010.svg"
+                      alt="Platform&lt;br&gt;Business" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_011.svg" alt="Blockchain"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_012.svg" alt="Fintech"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_013.svg"
+                      alt="Marketing&lt;br&gt;Tech" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_014.svg"
+                      alt="AI/Machine&lt;br&gt;learning" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_etc_015.svg" alt="MyD"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">08.온라인(웹·모바일) Online(Web·Mobile)</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_001.svg" alt="홈페이지&#47;인터넷"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_002.svg" alt="검색"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_003.svg" alt="검색결과없음"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_004.svg" alt="비밀번호 관리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_005.svg" alt="비밀번호 찾기"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_006.svg" alt="로그인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_007.svg" alt="로그인접속종료"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_008.svg" alt="My Account&#47;신상정보"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_009.svg" alt="본인인증"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_010.svg" alt="정회원 전환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_011.svg"
+                      alt="FAX/&lt;br&gt;Make&amp;Print" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_012.svg" alt="신청완료"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_013.svg" alt="버튼클릭"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_014.svg" alt="프로그램 실행"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_015.svg" alt="인터넷 신청안내 > 선택"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_016.svg" alt="인터넷 신청안내 > 작성"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_017.svg"
+                      alt="전자민원접수&#47;인증서전송성공&lt;br&gt;인터넷 신청안내 > 심사&#47;배송" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_018.svg" alt="보내는사람"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_019.svg" alt="받는사람"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_020.svg" alt="모바일서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_021.svg" alt="소셜미디어"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_022.svg"
+                      alt="휴대폰선택&#47;&lt;br&gt;앱확인&#47;신청" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_023.svg" alt="이동통신요금"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_024.svg" alt="로밍1일 이용권"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_025.svg" alt="모바일용 공인인증서"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_026.svg" alt="공인인증서 등록&#47;삭제"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_027.svg"
+                      alt="휴대폰인증서 발급안내&#47;&lt;br&gt;인증서 저장&#47;전송" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_028.svg" alt="인증서 이용하여&lt;br&gt;본인인증"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_029.svg" alt="키보드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_030.svg" alt="마우스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_031.svg" alt="키보드 + 마우스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_032.svg" alt="온라인 페이"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_033.svg" alt="디지털 컨텐츠"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_034.svg" alt="앱 다운로드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_035.svg" alt="휴대폰 요금 할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_on_036.svg" alt="카카오톡 청구서"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">09.안내·문의 Information</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_001.svg" alt="고객센터"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_002.svg" alt="24시간 고객센터"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_003.svg"
+                      alt="웹사이트 이용안내&#47;&lt;br&gt;지식&#47;정보&#47;안내" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_004.svg"
+                      alt="지식&#47;정보&lt;br&gt;부가서비스" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_005.svg" alt="24&#47;365 이용"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_006.svg" alt="도난분실신고&#47;주의"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_007.svg" alt="신고관련문서&lt;br&gt;다운로드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_008.svg"
+                      alt="E-mail&#47;&lt;br&gt;E-mail 상담" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_009.svg" alt="칭찬접수"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_010.svg"
+                      alt="전용상담&#47;Operation지원&#47;SMS&#47;결제승인 문자서비스&#47;온라인상담&#47;승인번호입력 인증번호 수신"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_info_011.svg"
+                      alt="컨시어지&#47;&lt;br&gt;the Perple 데스크" class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">10.스페셜 Special Offers</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_001.svg" alt="현대카드&lt;br&gt;서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_002.svg" alt="플래티늄 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_003.svg" alt="프리미엄 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_004.svg" alt="럭셔리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_005.svg" alt="럭셔리 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_006.svg" alt="클럽 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_007.svg" alt="다이너스 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_so_008.svg" alt="C서비스"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">11.보상·보험 Rewards·Insurance</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_001.svg" alt="보험"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_002.svg" alt="쇼핑케어서비스&#47;구매물품 손실보상"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_003.svg" alt="쇼핑케어멤버십"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_004.svg" alt="일상생활&lt;br&gt;보상책임서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_005.svg" alt="자동차 보험"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_006.svg" alt="운송보장"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_007.svg" alt="해외직구&lt;br&gt;운송보장"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ri_008.svg" alt="보이스피싱&lt;br&gt;피해보상"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">12.바우처·경품 Voucher·Event</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_001.svg" alt="바우처&#47;입장권"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_002.svg" alt="바우처 수령"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_003.svg"
+                      alt="매년 1회&lt;br&gt;바우처 교환 후 배송" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_004.svg" alt="쿠폰"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_005.svg" alt="트래블 바우처"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_006.svg" alt="기프트 바우처"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_007.svg" alt="호텔 바우처"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_008.svg"
+                      alt="쇼핑 바우처&#47;&lt;br&gt;럭셔리 바우처" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_009.svg" alt="코스트코 매장&lt;br&gt;"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_010.svg" alt="경품&#47;기프티콘"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_011.svg"
+                      alt="이벤트 전체&#47;&lt;br&gt;경품 이벤트&#47;&lt;br&gt;Surprise Event" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_012.svg" alt="경품응모"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_013.svg" alt="라이프스타일 바우처"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_014.svg" alt="레저 바우처"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_015.svg" alt="고메 바우처"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_016.svg" alt="이용권 결제"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_017.svg" alt="1회 이용권"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_018.svg" alt="이용권-신규"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ve_019.svg" alt="이용권-연장"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">13.쇼핑 Shopping</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_001.svg" alt="쇼핑"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_002.svg" alt="인터넷쇼핑"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_003.svg" alt="TV홈쇼핑"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_004.svg" alt="오프라인 할인&lt;br&gt;할인점"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_005.svg" alt="프리미엄아울렛"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_006.svg" alt="SPA브랜드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_007.svg" alt="면세점"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_008.svg" alt="백화점"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_009.svg" alt="여행상품할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_010.svg" alt="온라인할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_011.svg" alt="온라인 우선 혜택"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_012.svg"
+                      alt="배송정보&#47;&lt;br&gt;통합검색" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_013.svg"
+                      alt="방문택배&lt;br&gt;예약 및 할인" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_014.svg" alt="Shop"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_shop_015.svg" alt="PRIVIA 쇼핑"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">14.컬쳐 Culture</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_001.svg" alt="영화&#47;문화"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_002.svg" alt="커피전문점"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_003.svg"
+                      alt="교육&#47;&lt;br&gt;신용카드 모집인 교육&#47;&lt;br&gt;Open Class&#47;&lt;br&gt;Life style Class"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_004.svg" alt="도서"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_005.svg"
+                      alt="공연&#47;슈퍼콘서트&#47;&lt;br&gt;강연&#47;클래스&#47;&lt;br&gt;Demo Day" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_006.svg"
+                      alt="패밀리레스토랑&#47;&lt;br&gt;고메위크&#47;음식점&#47;조식" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_007.svg" alt="일상생활"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_008.svg" alt="여행"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_009.svg" alt="화장품"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_010.svg" alt="호텔"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_011.svg"
+                      alt="휴가&#47;&lt;br&gt;Rooftop" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_012.svg" alt="전시"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_013.svg" alt="베이커리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_014.svg" alt="Drink"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_015.svg" alt="웨딩"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_016.svg"
+                      alt="대형마트 슈퍼마켓&#47;&lt;br&gt;장바구니" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_017.svg" alt="편의점"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_018.svg" alt="생활 필수영역"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_019.svg" alt="Family Farm"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_020.svg"
+                      alt="뷰티&#47;피부과&#47;&lt;br&gt;성형외과" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_021.svg" alt="현대카드 프리비아"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_022.svg" alt="PRIVIA 여행"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_023.svg" alt="현대카드 MUSIC"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_024.svg" alt="글로벌&lt;br&gt;뮤지엄 패스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_025.svg" alt="A-Z"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_026.svg" alt="슈퍼시리즈"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_027.svg" alt="커피 오더"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_028.svg" alt="사우나"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cul_029.svg" alt="배달/배달앱"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">15.사람·특수 People</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_001.svg"
+                      alt="사업가&#47;전문가&#47;&lt;br&gt;LP&#47;MP(영업사원)" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_002.svg" alt="마케팅&#47;&lt;br&gt;심리상담"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_003.svg" alt="선발&#47;Career Fair"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_004.svg" alt="육성"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_005.svg" alt="정착"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_006.svg"
+                      alt="프로&#47;우량직장인&#47;&lt;br&gt;직장인 금리우대&#47;&lt;br&gt;우대혜택" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_007.svg" alt="무방문"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_008.svg" alt="패밀리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_009.svg" alt="신규회원"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_010.svg" alt="외국인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_011.svg" alt="장애인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_pp_012.svg" alt="청각장애인"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">16.운동 Sports</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_001.svg" alt="피트니스클럽"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_002.svg"
+                      alt="겨울레저&#47;&lt;br&gt;용평리조트" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_003.svg" alt="여름레저"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_004.svg" alt="골프"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_005.svg" alt="탁구"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_006.svg" alt="힐링프로그램"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_007.svg" alt="권투"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_spt_008.svg" alt="검도"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">17.교통 Vehicle</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_001.svg" alt=""/&gt;</code></pre>
+              <div class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_001.svg" alt="항공"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_002.svg" alt="버스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_003.svg" alt="철도"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_004.svg" alt="지하철"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_005.svg" alt="택시"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_006.svg" alt="자동차"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_007.svg" alt="트럭(화물)"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_008.svg" alt="건설기계"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_veh_009.svg" alt="주유"
+                      class="svg" /></button></li>
+              </div>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">18.항공 Airline</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_001.svg" alt="마일리지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_002.svg" alt="연각 누적마일리지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_003.svg" alt="오픈마일리지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_004.svg" alt="공항라운지"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_005.svg" alt="공항교통"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_006.svg" alt="항공권"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_006.svg" alt="마일리지 교환"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_air_006.svg"
+                      alt="대한항공 마일리지와 M포인트 중 선택 적립" class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">19.자동차 금융·서비스 Car Loans</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_001.svg" alt="하이브리드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_002.svg" alt="중고차"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_003.svg" alt="렌터카"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_004.svg"
+                      alt="금융 리스&#47;자동차 리스&#47;&lt;br&gt;국산&middot;수입차 운용리스" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_005.svg"
+                      alt="리스 승계&#47;&lt;br&gt;렌트 승계" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_006.svg"
+                      alt="자동차 할부&#47;&lt;br&gt;초저리 할부" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_007.svg"
+                      alt="관리서비스&#47;차량정비&#47;&lt;br&gt;매월일부옵션 무상제공&#47;&lt;br&gt;오토케어" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_008.svg"
+                      alt="자동차 구매&#47;&lt;br&gt;자동차 담보대출" class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_009.svg" alt="주차장"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_010.svg" alt="오토케어멤버십"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_011.svg" alt="세이브오토"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_cl_012.svg" alt="발렛파킹"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">20.라이브러리 Library</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_001.svg" alt="턴테이블/바이닐"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_002.svg" alt="추천음반"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_003.svg" alt="음반할인"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_004.svg" alt="음악"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_005.svg" alt="플레이리스트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_lib_006.svg" alt="음악티켓"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">21.B.I/C.I Identity</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_001.svg" alt="MY BUSINESS카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_002.svg" alt="카멜레온카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_003.svg" alt="하이패스카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_004.svg" alt="이마트카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_005.svg" alt="Priority Pass카드"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_006.svg" alt="Picnic to HyundaiCard"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_007.svg" alt="현대카드 디자인라이브러리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_008.svg" alt="현대카드 프리비아"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_009.svg" alt="PRIVIA 여행"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_010.svg" alt="PRIVIA 쇼핑"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_011.svg" alt="현대카드 MUSIC"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_012.svg" alt="글로벌 뮤지엄 패스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_013.svg" alt="슈퍼시리즈"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_014.svg" alt="다이너스 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_015.svg" alt="C서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_016.svg" alt="세이브오토"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_017.svg" alt="블루멤버스포인트"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_ide_018.svg" alt="제네시스멤버십"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+            <section class="svg_section">
+              <h4 class="h4_tb">22.TEXT</h4>
+              <pre><code class="language-html">&lt;img class="svg" src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_001.svg" alt=""/&gt;</code></pre>
+              <ul class="svg_icon_box">
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_001.svg" alt="A-Z"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_002.svg" alt="기타(영화/VOD/음원/장례)"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_003.svg" alt="One Stop"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_004.svg" alt="발렛파킹"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_005.svg" alt="현대카드 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_006.svg" alt="플래티늄 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_007.svg" alt="프리미엄 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_008.svg" alt="력셔리"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_009.svg" alt="력셔리 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_010.svg" alt="클럽 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_011.svg" alt="시그니처 서비스"
+                      class="svg" /></button></li>
+                <li><button class="data-clipboard"><img
+                      src="https://www.hyundaicard.com/docfiles/resources/pc/images/common/svg/ico_text_012.svg" alt="월드 서비스"
+                      class="svg" /></button></li>
+              </ul>
+            </section>
+          </section><!-- // ia-content-body -->
+          <!-- e: 공통 -->
+      </div><!-- // ia-content-body -->
+
+    </div><!-- // ia-content -->
+
+  </div><!-- // ia-container -->
+  </div><!-- // ia-wrap -->
+  <footer>
+  </footer><!-- // footer -->
+  <script>
+    hljs.highlightAll();
+
+    $(document).ready(function(){
+      cardSvg.url();
+    });
+  </script>
+</body>
+
+</html>
