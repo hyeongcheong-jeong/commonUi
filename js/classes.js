@@ -17,7 +17,6 @@ class Vending{//커피머신
     console.log(type , target)
   }
 }
-
 //상속 , 다양성
 
 class CoffeeGet extends Vending{

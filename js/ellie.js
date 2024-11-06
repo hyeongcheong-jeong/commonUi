@@ -124,4 +124,25 @@ const person2 = new Person1('jhc' , 123);
 for(key in ellie){
 }
 
-//combine to array => concat  
+//promise
+const result = false;
+const promise = new Promise((resolve, reject) => {
+  if (result) {
+    resolve('kkk');
+  } else {
+    reject('aaa');
+  }
+});
+promise
+  .then(message => {
+    console.log(message);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+  .finally(() => {
+    console.log('무조건');
+  })
+
+const arrr = [1,3,2,5,6,7,2,3];
+const m = new Set(arrr);
